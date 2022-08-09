@@ -1,0 +1,110 @@
+//* зірковий рейтинг
+
+//? Простий рейтинг ================================================================================================================================================================================
+.simple-rating {
+    position: relative;
+    font-size: 40px;  /* розмір рейтингу */
+    display: inline-block;
+    &::before {
+        content: '★★★★★';
+        display: block;
+    }
+    &__items {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row-reverse;
+        overflow: hidden;
+    }
+    &__item {
+        position: absolute;
+        width: 0%;
+        height: 0%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+    &__label {
+        flex: 0 0 20%;
+        height: 100%;
+        cursor: pointer;
+        color: #eee;
+        &::before {
+            content: '★';
+            display: block;
+            transition: color 0.3s ease 0s;
+        }
+    }
+}
+.simple-rating__label:hover,
+.simple-rating__label:hover ~ .simple-rating__label,
+.simple-rating__label:checked ~ .simple-rating__label:hover {
+    color: #ffef9f;
+}
+.simple-rating__item:checked,
+.simple-rating__item:checked ~ .simple-rating__label {
+    color: #ffd300;
+}
+
+//? Рейтинг (JS + AJAX) ================================================================================================================================================================================
+.rating {
+    display: flex;
+    align-items: flex-end;
+    font-size: 40px;
+    line-height: 0.75;
+    transition: opacity 0.3s;
+    &__body {
+        position: relative;
+        color: #eee;
+        &::before {
+            content: '★★★★★';
+            display: block;
+        }
+    }
+    &__active {
+        position: absolute;
+        width: 0%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        &::before {
+            content: '★★★★★';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0; 
+            color: #ffd300;
+        }
+    }
+    &__items {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    &__item {
+        flex: 0 0 20%;
+        height: 100%;
+        opacity: 0;
+    }
+    &__value {
+        font-size: 50%;
+        line-height: 1;
+        padding-left: 10px;
+    }
+    .rating_sending {
+        opacity: 0.2;
+    }
+}
+.rating.rating_set .rating__active,
+.rating.rating_set .rating__item {
+    cursor: pointer;
+}

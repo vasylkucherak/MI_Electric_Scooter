@@ -1,0 +1,21 @@
+//* шкала скролу на сайті
+
+body {
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+}
+.progress-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 5px;
+    background: #ccc;
+    z-index: 10;
+}
+.progress-bar {
+    width: inherit;
+    background: #444;
+    height: 0%;
+}

@@ -1,0 +1,86 @@
+//* Доступ до панелі скролу
+body {
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
+//* Стилі окремо для пристроїв з курсором та сенсорних
+/* 
+body {
+    &._cursor {}
+    &._touch {}
+} 
+*/
+
+//* Налаштування зміни розміру textarea
+textarea {
+    resize: both; //* both | vertical | horizontal | none
+}
+
+//* Коли чекбокс відмічений
+/* 
+input {
+    &:checked {}
+} 
+*/
+
+//* Коли перейшли по ссилці (href)
+/* 
+a {
+    &:target {}
+} 
+*/
+
+//* для окремих елементів даного класу 
+/* 
+li {
+    &:first-child {}
+    &:last-child {}
+    &:nth-child(2) {} 
+} 
+*/
+
+//* Приховування і показ елемента
+div {
+    &._hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    &._active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+}
+
+//* Анімація при наведенні на фото
+.image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    img {
+        width: 100%;
+        transition: transform 0.3s;
+    }
+    &:hover {
+        img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+//* Прикольні стилі тексту
+span {
+    text-decoration-line: line-through;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+//* Покрокова анімація
+div {
+    animation: animName 11s steps(10, end) forwards;
+}

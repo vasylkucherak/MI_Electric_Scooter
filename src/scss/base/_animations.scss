@@ -1,0 +1,46 @@
+//* Базові анімації
+
+@keyframes heartbeat {
+    from {
+        transform: scale(1);
+    }
+    12% {
+        transform: scale(1.15);
+    }
+    25% {
+        transform: scale(1);
+    }
+    37% {
+        transform: scale(1.08);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+//? анімація появи =================================================================================================================================
+.fadeIn {
+    animation-name:fadeIn;
+    pointer-events: auto;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+//? анімація зникнення =============================================================================================================================
+.fadeOut {
+    animation-name:fadeOut;
+    pointer-events: none;
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,48 @@
+//* Фулскрін секція
+
+.fullscreen {
+    padding: 20px 0;
+    display: flex;
+    min-height: 100vh;
+    background-color: #666;
+    &__container {
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        justify-content: center;
+        max-width: 1000px;
+        width: 100%;
+        text-align: center;
+        background-color: #794f45;
+    }
+    &__title {
+        margin-bottom: 20px;
+        font-size: 50px;
+    }
+    &__text {
+        margin-bottom: 20px;
+        font-size: 25px;
+    }
+    &__link {
+        padding: 0 20px;
+        display: inline-block;
+        align-self: center;
+        line-height: 50px;
+        letter-spacing: 2px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: #77608d;
+    }
+    &_bg {
+        background: url('https://uhdwallpapers.org/uploads/converted/20/01/14/the-mandalorian-5k-1920x1080_477555-mm-90.jpg') center / cover no-repeat fixed;
+    }
+    &_two {
+        background-color: #794f45;
+        &__container {
+            background-color: #666;
+        }
+    }
+}

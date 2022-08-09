@@ -1,0 +1,21 @@
+//* Лінива загрузка
+
+.image {
+    background: url('../../../../customElements/icons/spinner/spinner_1.svg') center / 50px no-repeat;
+}
+.map__wrapper {
+    position: relative;
+    padding: 0 0 50% 0;
+    background: url('../../../../customElements/icons/spinner/spinner_1.svg') center / 50px no-repeat;
+}
+.map__Wrapper iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+._loading-icon {
+    background: url('../../../../customElements/icons/spinner/spinner_1.svg') center / 50px no-repeat;
+    height: 50px;
+}

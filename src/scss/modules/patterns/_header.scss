@@ -1,0 +1,272 @@
+//* Шапка сайту
+
+//? Шапка ===================================================================================================================================================================
+$headerColor: #eb451c; // колір
+$headerMinHeight: 70px; // мінімальна висота
+
+//? Кнопки випадаючого списку ===============================================================================================================================================
+$sublinkMargin: 15px; // відступи між кнопками
+
+//? Випадаючий список =======================================================================================================================================================
+$sublistMinWidth: 200px; // мінімальна ширина
+$sublistPadding: 15px; // внутрішній відступ 
+$sublistPosition: 0; // позиціювання відносно краю кнопки меню (лівого: auto / правого: 0)
+
+//? Бургер ==================================================================================================================================================================
+$burgerWidth: 30px;
+$burgerHeight: 18px;
+$burgerColor: #fff; //колір
+
+//? Панель меню (max-width: 767px) ==========================================================================================================================================
+$transitionHorizontalPosition: -100%; // поява панелі меню (зверху: -100% / знизу: 100% / відміна: 0)
+$transitionVerticalPosition: 0; // поява панелі меню (зліва: -100% / зправа: 100% / відміна: 0)
+
+.header {
+    position: relative; // relative / fixed
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $headerColor;
+    z-index: 10;
+    &__container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: $headerMinHeight;
+        padding: 15px $containerPadding + px;
+    }
+    &__logo {
+        position: relative;
+        background: #fff; // url("") center / cover no-repeat
+        z-index: 5;
+    }
+}
+.menu {
+    &__list > li {
+        margin: 0 10px;
+        position: relative;
+    }
+    &__sublist {
+        padding: $sublistPadding;
+        position: absolute;
+        top: 100%;
+        right: $sublistPosition;
+        min-width: $sublistMinWidth;
+        background-color: #000;
+        li {
+            margin-bottom: $sublinkMargin;
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+    &__arrow {
+        display: none;
+    }
+    /*
+    &__link {
+    }
+    &__sublink {
+    } 
+    */
+}
+
+body {
+    &.lock {
+        overflow: hidden;
+    }
+    //* Івенти для девайсів з курсором
+    &._cursor {
+        .menu {
+            //* Стилізація появи випадаючого списку при наведенні на кнопку меню
+            &__list > li:hover .menu__sublist {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: all;
+                transform: translate(0, 0);
+            }
+            //* Стилізація кнопок меню при наведенні
+            &__link:hover {
+                text-decoration: underline;
+            }
+            //* Стилізація кнопок випадаючого списку при наведенні
+            &__sublink:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    //* Івенти для сенсорних девайсів
+    &._touch {
+        .menu__list > li {
+            display: flex;
+            align-items: center;
+            //* дається li при touch івенті на стрілку 
+            &.active {
+                .menu {
+                    &__sublist {
+                        height: auto;
+                        opacity: 1;
+                        visibility: visible;
+                        pointer-events: all;
+                        transform: translate(0, 0);
+                        @media (max-width: 767px) {
+                            margin-top: 15px;
+                            padding: 15px;
+                        }
+                    }
+                    //* Стилізація стрілки при touch івенті
+                    &__arrow.active {
+                        transform: rotate(-180deg);
+                    }
+                }
+            }
+        }
+        .menu__link {
+            flex: 1 1 auto;
+            //* Стилізація кнопок меню при touch івенті
+            &:active {
+                text-decoration: underline;
+            }
+        }
+        .menu__sublink {
+            //* Стилізація кнопок випадаючого списку при touch івенті
+            &:active {
+                text-decoration: underline;
+            }
+        }
+        .menu__arrow {
+            margin: 0 0 0 5px;
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 10px solid #fff;
+            transition: transform .3s ease 0s;
+        }
+    }
+}
+
+@media (min-width: 767px) {
+    .menu {
+        &__list {
+            display: flex;
+            align-items: center;
+        }
+        &__list > li {
+            padding: 10px 0;
+        }
+        &__sublist {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translate(0, 10%);
+            transition: all .3s ease;
+        }
+    }
+}
+@media (max-width: 767px) {
+    .menu {
+        &__burger {
+            position: relative;
+            display: block;
+            width: $burgerWidth;
+            height: $burgerHeight;
+            cursor: pointer;
+            z-index: 5;
+            span {
+                top: 50%;
+                transform: scale(1) translateY(-50%);
+            }
+            &::before {
+                content: '';
+                top: 0;
+            }
+            &::after {
+                content: '';
+                bottom: 0;
+            }
+            &.active {
+                span{
+                    transform: scale(0) translateY(-50%);
+                }
+                &::before {
+                    top: 50%;
+                    transform: rotate(-45deg) translate(3%, -20%);
+                }
+                &::after {
+                    bottom: 50%;
+                    transform: rotate(45deg) translate(3%, 20%);
+                }
+            }
+        }
+        &__body {
+            padding: 100px 30px 30px 30px;
+            position: fixed;
+            top: $transitionHorizontalPosition;
+            left: $transitionVerticalPosition;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .95);
+            transition: all .3s ease;
+            overflow: auto;
+            &.active {
+                left: 0;
+                top: 0;
+            }
+            &::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: $headerMinHeight;
+                background-color: $headerColor;
+                z-index: 2;
+            }
+        }
+        &__list {
+            width: 100%;
+        }
+        &__list > li {
+            margin: 0 0 30px 0;
+            flex-wrap: wrap;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &.active {
+                .menu {
+                    display: block;
+                }
+            }
+        }
+        &__sublist {
+            padding: 0;
+            position: relative;
+            flex: 1 1 100%;
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translate(0, 10%);
+            height: 0;
+            transition: all .3s ease;
+        }
+        &__link {
+            font-size: 24px;
+        }
+        &__sublink {
+            font-size: 20px;
+            color: #000;
+        }
+    }
+    .menu__burger span, .menu__burger::before, .menu__burger::after {
+        position: absolute;
+        left: 0;
+        height: 10%;
+        width: 100%;
+        background-color: $burgerColor;
+        transition: all .3s ease;
+    }
+}

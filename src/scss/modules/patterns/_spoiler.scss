@@ -1,0 +1,116 @@
+//* Акордеон
+
+//? Спойлер ===================================================================================================================================================================
+$spoilerHeaderColor: #fff;
+$spoilerContentColor: #fff;
+
+//? Іконка ==================================================================================================================================================================
+$spoilerIconWidth: 20px;
+$spoilerIconHeight: 20px;
+$spoilerIconColor: #000;
+
+.spoiler {
+    position: relative;
+    padding: 20px 0;
+    &__title {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    &__subtitle {
+        font-size: 20px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    &__header {
+        position: relative;
+        margin: 0 auto;
+        padding: 5px 0;
+        border: 1px solid #333;
+        font-size: 24px;
+        text-align: center;
+        cursor: pointer;
+        &.active {
+            /* 
+            .spoiler__header-title {
+            } 
+            */
+            .spoiler__header-icon {
+                /* 
+                &:before, &:after {
+                } 
+                */
+                //* плюсик +  
+                transform: translateY(-50%) rotate(45deg);
+                //* стрілка ^
+                /* &:before {
+                    transform: translateY(-50%) rotate(-45deg);
+                }
+                &:after {
+                    transform: translateY(-50%) rotate(45deg);
+                } */
+            }
+        }
+        &-title {
+            transition: all .3s;
+        }
+        &-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%) rotate(0deg);
+            width: $spoilerIconWidth;
+            height: $spoilerIconHeight;
+            transition: all .3s;
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                background-color: $spoilerIconColor;
+                border-radius: 2px;
+                transition: all .3s;
+            }
+            &:before {
+                //* плюсик +
+                width: 100%;
+                height: 15%;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                //* стрілка ^
+                /* width: 65%;
+                height: 15%;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%) rotate(45deg); */
+            }
+            &:after {
+                //* плюсик +
+                width: 15%;
+                height: 100%;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                //* стрілка ^
+                /* width: 65%;
+                height: 15%;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%) rotate(-45deg); */
+            }
+        }
+    }
+    &__content {
+        display: block;
+        opacity: 0;
+        margin: 0 auto;
+        max-height: 0;
+        overflow: hidden;
+        background-color: $spoilerContentColor;
+        transition: all 0.3s ease-out;
+        &.active {
+            opacity: 1;
+            padding: 10px;
+            overflow: visible;
+        }
+    } 
+}

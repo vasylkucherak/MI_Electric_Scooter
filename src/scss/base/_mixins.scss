@@ -1,0 +1,48 @@
+//* Базові міксини
+
+//? Адаптивний шрифт ===============================================================================================================================
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (min-width: 767px) {
+        font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxContainerWidth}));
+    }
+    @media (max-width: 767px) {
+        font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxContainerWidth}));
+    }
+}
+//? Використання:
+//* h1 {
+//!     @include adaptiv-font(40, 24);
+//*     font-weight: 400;
+//* }
+
+
+//? Адаптивне значення =============================================================================================================================
+@mixin adaptiv-value($property, $startSize, $minSize, $type){
+    $addSize: $startSize - $minSize;
+    //* [type=1] коли ширина менша за ширину контейнера
+    @if $type== 1 {
+        #{$property}: $startSize + px;
+        @media(max-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + ((100vw - 320px) / #{$maxWidthContainer - 320} * #{$addSize}));
+        }
+    }
+    //* [type=2] коли ширина більша за ширину контейнера
+    @else if $type== 2{
+        #{$property}: $startSize + px;
+        @media(min-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + ((100vw - 320px) / #{$maxWidth - 320} * #{$addSize}));
+        }
+        
+    }
+    //* [type=0] при будь-якій ширині
+    @else {
+        #{$property}: calc(#{$minSize + px} + ((100vw - 320px) / #{$maxWidth - 320} * #{$addSize}));
+    }
+}
+//? Використання:
+//* h1 {
+//!     @include adaptiv-value("padding", 40, 24, 0);
+//*     font-weight: 400;
+//* }

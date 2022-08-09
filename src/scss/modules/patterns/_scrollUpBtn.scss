@@ -1,0 +1,33 @@
+//* Скрол на початок сайту при кліці на кнопку вверх
+
+//? Розміри кнопки вверх ==============================================================================================================================================
+$upBtnWidth: 30px; // ширина
+$upBtnHeight: 30px; // висота
+//? Розміщення кнопки =================================================================================================================================================
+$upBtnTop: auto; // зверху
+$upBtnBottom: 30px; // знизу
+$upBtnLeft: auto; // зліва
+$upBtnRight: 30px; // зправа
+//? ===================================================================================================================================================================
+.scroll-up-btn {
+    opacity: 0;
+    position: fixed;
+    top: $upBtnTop;
+    bottom: $upBtnBottom;
+    left: $upBtnLeft;
+    right: $upBtnRight;
+    z-index: 100;
+    img {
+        width: $upBtnWidth;
+        height: $upBtnHeight;
+        transition: transform .3s;
+        cursor: pointer;
+    }
+    &.animated {
+        animation-duration:1s;
+        animation-fill-mode:both;
+    }
+}
+body._cursor .scroll-up-btn img:hover {
+    transform: translateY(-10%);
+}

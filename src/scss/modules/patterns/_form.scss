@@ -1,0 +1,216 @@
+//* Форма
+
+body {
+    background-color: #333;
+}
+.form {
+    padding: 30px 0;
+    color: #fff;
+    &__title {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+    &__body {
+        position: relative;
+        &::after {
+            opacity: 0;
+            visibility: hidden;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(51, 51, 51, .9) url('../../icons/spinner.gif') center / 150px no-repeat;
+            transition: all 0.5s ease 0s;
+        }
+        &._sending {
+            &::after {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    &__item {
+        margin-bottom: 20px;
+    }
+    &__label {
+        font-size: 18px;
+        display: block;
+        margin-bottom: 10px;
+    }
+    &__input {
+        height: 50px;
+        padding: 0px 20px;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 18px;
+        transition: all .5s;
+        &:focus {
+            box-shadow: 0 0 15px #7a956b;
+        }
+        &._error {
+            box-shadow: 0 0 15px red;
+        }
+    }
+    textarea.form__input {
+        min-height: 120px;
+        resize: vertical;
+        padding: 20px;
+    }
+    &__btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 60px;
+        color: #fff;
+        background-color: #7a956b;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        cursor: pointer;
+        border-radius: 20px;
+        box-shadow: 0 5px 0 #161b13;
+        transition: background-color .5s;
+        position: relative;
+        top: 0;
+    }
+}
+.options {
+    padding-top: 10px;
+    &__item {
+        margin-bottom: 10px;
+    }
+    &__label {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        font-size: 16px;
+        line-height: 140%;
+        cursor: pointer;
+        &::before {
+            content: '';
+            flex: 0 0 24px;
+            height: 24px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 16px;
+            height: 16px;
+            background-color: #7a956b;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform .3s;
+        }
+    }
+    &__input {
+        display: none;
+        &:checked + .options__label::after {
+            transform: scale(1);
+        }
+    }
+}
+.select {
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 0px 20px;
+    cursor: pointer;
+}
+.file {
+    &__item {
+        position: relative;
+    }
+    &__input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        font-size: 0;
+        cursor: pointer;
+    }
+    &__btn {
+        display: inline-flex;
+        min-height: 40px;
+        border-radius: 30px;
+        justify-content: center;
+        align-items: center;
+        background-color: #77608d;
+        padding: 0px 20px;
+    }
+    &__preview {
+        display: inline-block;
+        min-width: 100px;
+        padding-top: 10px;
+    }
+}
+.checkbox {
+    &._error {
+        .checkbox__label {
+            &::before {
+                box-shadow: 0 0 15px red;
+            }
+        }
+    }
+    &__input {
+        display: none;
+        &:checked + .checkbox__label::after {
+            transform: scale(1);
+        }
+    }
+    &__label {
+        position: relative;
+        font-size: 16px;
+        line-height: 140%;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        &::before {
+            content: '';
+            margin-right: 10px;
+            flex: 0 0 24px;
+            height: 24px;
+            background-color: #fff;
+            border-radius: 4px;
+            align-self: flex-start;
+            //TODO: можна для ::before додати background-image із галочкою чи іншою довільною іконкою
+        }
+        &::after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            background-color: #7a956b;
+            border-radius: 4px;
+            transform: scale(0);
+            transition: transform .3s;
+        }
+        a {
+            color: #7a956b;
+        }
+    }
+}
+body._cursor {
+    .form__btn {
+        &:hover {
+            background-color: #5e7552;
+        }
+        &:active {
+            top: 2px;
+            box-shadow: 0 3px 0 #161b13;
+        }
+    }
+}
