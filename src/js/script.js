@@ -6,7 +6,7 @@ import touchOrCursor from "./modules/_touchOrCursor.js"; //? Перевірка 
 
 //? Додаткові скрипти =================================================================================================================================
 import theme from "./modules/_theme.js";
-//import headerMenu from "./modules/_headerMenu.js"; //? Меню шапки
+import headerMenu from "./modules/_headerMenu.js"; //? Меню шапки
 //import spoiler from "./modules/_spoiler.js"; //? Спойлер (або акордіон)
 //import swiperSlider from "./modules/_swiperSlider.js" //? Слайдер Swiper
 //import slickSlider from "./modules/_slickSlider.js" //? Слайдер Slick
@@ -25,15 +25,15 @@ import theme from "./modules/_theme.js";
 //? Скрипти для модулів =================================================================================================================================
 //import {_slideUp, _slideDown, _slideToggle} from "./modules/_slideUpDownToggle.js"; //? Створення анімацій slideUp, slideDown і slideToggle як у jQuery
 
-theme();
-
 document.addEventListener('DOMContentLoaded', function() {
 
+    theme();
+    
     isWebP();
 
     touchOrCursor();
 
-    //headerMenu();
+    headerMenu();
 
     /* spoiler({
         spoilerTrigger: '.spoiler__header',

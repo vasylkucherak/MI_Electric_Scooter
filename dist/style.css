@@ -236,7 +236,7 @@ body._touch .menu__link {
   flex: 1 1 auto;
 }
 body._touch .menu__link:active {
-  text-decoration: underline;
+  color: #fd4900;
 }
 
 @media (min-width: 991.98px) {
@@ -251,6 +251,18 @@ body._touch .menu__link:active {
 @media (max-width: 991.98px) {
   .header-btn {
     display: none;
+  }
+  html.light .menu__body {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  html.light .menu__link {
+    color: #F1F1F1;
+  }
+  html.dark .menu__body {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+  html.dark .menu__link {
+    color: #151515;
   }
   html .menu {
     flex: 0 0 54px;
@@ -294,18 +306,17 @@ body._touch .menu__link:active {
     transform: rotate(45deg) translate(3%, 20%);
   }
   html .menu__body {
-    padding: 100px 30px 30px 30px;
+    padding: 120px 30px 30px 30px;
     position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
+    top: 0;
+    right: -100%;
+    width: 400px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
     transition: all 0.3s ease;
     overflow: auto;
   }
   html .menu__body.active {
-    left: 0;
+    right: 0;
     top: 0;
   }
   html .menu__body::before {
@@ -333,6 +344,7 @@ body._touch .menu__link:active {
   }
   html .menu__link {
     font-size: 24px;
+    text-align: center;
   }
   .menu__burger span, .menu__burger::before, .menu__burger::after {
     position: absolute;
@@ -341,6 +353,16 @@ body._touch .menu__link:active {
     width: 100%;
     background-color: #231f20;
     transition: all 0.3s ease;
+  }
+}
+@media (max-width: 500px) {
+  html .menu {
+    flex: 0 0 44px;
+    height: 44px;
+  }
+  .header__logo {
+    width: 45px;
+    height: 30px;
   }
 }
 .btn {

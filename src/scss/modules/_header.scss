@@ -13,8 +13,8 @@ $burgerHeight: 16px;
 $burgerColor: #231f20; //колір
 
 //? Панель меню (max-width: 767px) ==========================================================================================================================================
-$transitionHorizontalPosition: -100%; // поява панелі меню (зверху: -100% / знизу: 100% / відміна: 0)
-$transitionVerticalPosition: 0; // поява панелі меню (зліва: -100% / зправа: 100% / відміна: 0)
+$transitionHorizontalPosition: 0; // поява панелі меню (зверху: -100% / знизу: 100% / відміна: 0)
+$transitionVerticalPosition: -100%; // поява панелі меню (зліва: -100% / зправа: 100% / відміна: 0)
 
 .header {
     margin-top: 15px;
@@ -88,7 +88,7 @@ body {
             flex: 1 1 auto;
             //* Стилізація кнопок меню при touch івенті
             &:active {
-                text-decoration: underline;
+                color: #fd4900;
             }
         }
     }
@@ -109,90 +109,112 @@ body {
     .header-btn {
         display: none;
     }
-    html .menu {
-        flex: 0 0 54px;
-        margin: 0;
-        border-radius: 50%;
-        height: 54px;
-        background-color: #f1f1f1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &__burger {
-            position: relative;
-            display: block;
-            width: $burgerWidth;
-            height: $burgerHeight;
-            cursor: pointer;
-            z-index: 5;
-            span {
-                top: 50%;
-                transform: scale(1) translateY(-50%);
+    html {
+        &.light {
+            .menu {
+                &__body {
+                    background-color: rgba(0, 0, 0, .6);
+                }
+                &__link {
+                    color: #F1F1F1;
+                }
             }
-            &::before {
-                content: '';
-                top: 0;
+        }
+        &.dark {
+            .menu {
+                &__body {
+                    background-color: rgba(255, 255, 255, .6);
+                }
+                &__link {
+                    color: #151515;
+                }
             }
-            &::after {
-                content: '';
-                bottom: 0;
-            }
-            &.active {
-                span{
-                    transform: scale(0) translateY(-50%);
+        }
+        .menu {
+            flex: 0 0 54px;
+            margin: 0;
+            border-radius: 50%;
+            height: 54px;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &__burger {
+                position: relative;
+                display: block;
+                width: $burgerWidth;
+                height: $burgerHeight;
+                cursor: pointer;
+                z-index: 5;
+                span {
+                    top: 50%;
+                    transform: scale(1) translateY(-50%);
                 }
                 &::before {
-                    top: 50%;
-                    transform: rotate(-45deg) translate(3%, -20%);
+                    content: '';
+                    top: 0;
                 }
                 &::after {
-                    bottom: 50%;
-                    transform: rotate(45deg) translate(3%, 20%);
+                    content: '';
+                    bottom: 0;
+                }
+                &.active {
+                    span{
+                        transform: scale(0) translateY(-50%);
+                    }
+                    &::before {
+                        top: 50%;
+                        transform: rotate(-45deg) translate(3%, -20%);
+                    }
+                    &::after {
+                        bottom: 50%;
+                        transform: rotate(45deg) translate(3%, 20%);
+                    }
                 }
             }
-        }
-        &__body {
-            padding: 100px 30px 30px 30px;
-            position: fixed;
-            top: $transitionHorizontalPosition;
-            left: $transitionVerticalPosition;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, .95);
-            transition: all .3s ease;
-            overflow: auto;
-            &.active {
-                left: 0;
-                top: 0;
-            }
-            &::before {
-                content: '';
+            &__body {
+                padding: 120px 30px 30px 30px;
                 position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: $headerMinHeight;
-                background-color: $headerColor;
-                z-index: 2;
-            }
-        }
-        &__list {
-            width: 100%;
-        }
-        &__list > li {
-            margin: 0 0 30px 0;
-            flex-wrap: wrap;
-            &:last-child {
-                margin-bottom: 0;
-            }
-            &.active {
-                .menu {
-                    display: block;
+                top: $transitionHorizontalPosition;
+                right: $transitionVerticalPosition;
+                width: 400px;
+                height: 100%;
+                transition: all .3s ease;
+                overflow: auto;
+                &.active {
+                    right: 0;
+                    top: 0;
+                }
+                &::before {
+                    content: '';
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: $headerMinHeight;
+                    background-color: $headerColor;
+                    z-index: 2;
                 }
             }
-        }
-        &__link {
-            font-size: 24px;
+            &__list {
+                width: 100%;
+            }
+            &__list > li {
+                margin: 0 0 30px 0;
+                flex-wrap: wrap;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                &.active {
+                    .menu {
+                        display: block;
+                    }
+                }
+            }
+            &__link {
+                font-size: 24px;
+                text-align: center;
+            }
         }
     }
     .menu__burger span, .menu__burger::before, .menu__burger::after {
@@ -202,5 +224,15 @@ body {
         width: 100%;
         background-color: $burgerColor;
         transition: all .3s ease;
+    }
+}
+@media (max-width: 500px) {
+    html .menu {
+        flex: 0 0 44px;
+        height: 44px;
+    }
+    .header__logo {
+        width: 45px;
+        height: 30px;
     }
 }
