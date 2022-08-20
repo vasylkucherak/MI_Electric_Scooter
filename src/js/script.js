@@ -5,6 +5,7 @@ import isWebP from "./modules/_isWebP.js"; //? Перевірка підтрим
 import touchOrCursor from "./modules/_touchOrCursor.js"; //? Перевірка на touch або mouse івенти
 
 //? Додаткові скрипти =================================================================================================================================
+import theme from "./modules/_theme.js";
 //import headerMenu from "./modules/_headerMenu.js"; //? Меню шапки
 //import spoiler from "./modules/_spoiler.js"; //? Спойлер (або акордіон)
 //import swiperSlider from "./modules/_swiperSlider.js" //? Слайдер Swiper
@@ -23,6 +24,8 @@ import touchOrCursor from "./modules/_touchOrCursor.js"; //? Перевірка 
 
 //? Скрипти для модулів =================================================================================================================================
 //import {_slideUp, _slideDown, _slideToggle} from "./modules/_slideUpDownToggle.js"; //? Створення анімацій slideUp, slideDown і slideToggle як у jQuery
+
+theme();
 
 document.addEventListener('DOMContentLoaded', function() {
 

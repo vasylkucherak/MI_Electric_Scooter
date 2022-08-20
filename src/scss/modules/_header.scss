@@ -1,28 +1,24 @@
 //* Шапка сайту
 
 //? Шапка ===================================================================================================================================================================
-$headerColor: #eb451c; // колір
-$headerMinHeight: 70px; // мінімальна висота
+$headerColor: transparent; // колір
+$headerMinHeight: 54px; // мінімальна висота
 
 //? Кнопки випадаючого списку ===============================================================================================================================================
 $sublinkMargin: 15px; // відступи між кнопками
 
-//? Випадаючий список =======================================================================================================================================================
-$sublistMinWidth: 200px; // мінімальна ширина
-$sublistPadding: 15px; // внутрішній відступ 
-$sublistPosition: 0; // позиціювання відносно краю кнопки меню (лівого: auto / правого: 0)
-
 //? Бургер ==================================================================================================================================================================
-$burgerWidth: 30px;
-$burgerHeight: 18px;
-$burgerColor: #fff; //колір
+$burgerWidth: 24px;
+$burgerHeight: 16px;
+$burgerColor: #231f20; //колір
 
 //? Панель меню (max-width: 767px) ==========================================================================================================================================
 $transitionHorizontalPosition: -100%; // поява панелі меню (зверху: -100% / знизу: 100% / відміна: 0)
 $transitionVerticalPosition: 0; // поява панелі меню (зліва: -100% / зправа: 100% / відміна: 0)
 
 .header {
-    position: relative; // relative / fixed
+    margin-top: 15px;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -38,39 +34,36 @@ $transitionVerticalPosition: 0; // поява панелі меню (зліва:
     }
     &__logo {
         position: relative;
-        background: #fff; // url("") center / cover no-repeat
         z-index: 5;
+        width: 60px;
+        height: 40px;
     }
 }
-.menu {
-    &__list > li {
-        margin: 0 10px;
-        position: relative;
-    }
-    &__sublist {
-        padding: $sublistPadding;
-        position: absolute;
-        top: 100%;
-        right: $sublistPosition;
-        min-width: $sublistMinWidth;
-        background-color: #000;
-        li {
-            margin-bottom: $sublinkMargin;
-            &:last-child {
-                margin: 0;
-            }
+html {
+    .menu {
+        flex: 1 1 100%;
+        margin: 0 40px;
+        &__link {
+            color: #F1F1F1;
+            transition: color 0.3s;
+        }
+        &__list > li {
+            margin: 0 10px;
+            position: relative;
         }
     }
-    &__arrow {
-        display: none;
+    &.light {
+        .menu__link {
+            color: #151515;
+        }
     }
-    /*
-    &__link {
+    &.dark {
+        .menu__link {
+            color: #F1F1F1;
+        }
     }
-    &__sublink {
-    } 
-    */
 }
+
 
 body {
     &.lock {
@@ -79,20 +72,9 @@ body {
     //* Івенти для девайсів з курсором
     &._cursor {
         .menu {
-            //* Стилізація появи випадаючого списку при наведенні на кнопку меню
-            &__list > li:hover .menu__sublist {
-                opacity: 1;
-                visibility: visible;
-                pointer-events: all;
-                transform: translate(0, 0);
-            }
             //* Стилізація кнопок меню при наведенні
             &__link:hover {
-                text-decoration: underline;
-            }
-            //* Стилізація кнопок випадаючого списку при наведенні
-            &__sublink:hover {
-                text-decoration: underline;
+                color: #fd4900;
             }
         }
     }
@@ -101,26 +83,6 @@ body {
         .menu__list > li {
             display: flex;
             align-items: center;
-            //* дається li при touch івенті на стрілку 
-            &.active {
-                .menu {
-                    &__sublist {
-                        height: auto;
-                        opacity: 1;
-                        visibility: visible;
-                        pointer-events: all;
-                        transform: translate(0, 0);
-                        @media (max-width: 767px) {
-                            margin-top: 15px;
-                            padding: 15px;
-                        }
-                    }
-                    //* Стилізація стрілки при touch івенті
-                    &__arrow.active {
-                        transform: rotate(-180deg);
-                    }
-                }
-            }
         }
         .menu__link {
             flex: 1 1 auto;
@@ -129,45 +91,33 @@ body {
                 text-decoration: underline;
             }
         }
-        .menu__sublink {
-            //* Стилізація кнопок випадаючого списку при touch івенті
-            &:active {
-                text-decoration: underline;
-            }
-        }
-        .menu__arrow {
-            margin: 0 0 0 5px;
-            display: block;
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 10px solid #fff;
-            transition: transform .3s ease 0s;
-        }
     }
 }
 
-@media (min-width: 767px) {
+@media (min-width: $tablet) {
     .menu {
         &__list {
             display: flex;
             align-items: center;
         }
-        &__list > li {
-            padding: 10px 0;
-        }
-        &__sublist {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transform: translate(0, 10%);
-            transition: all .3s ease;
+        &__link {
+            padding: 10px;
         }
     }
 }
-@media (max-width: 767px) {
-    .menu {
+@media (max-width: $tablet) {
+    .header-btn {
+        display: none;
+    }
+    html .menu {
+        flex: 0 0 54px;
+        margin: 0;
+        border-radius: 50%;
+        height: 54px;
+        background-color: #f1f1f1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &__burger {
             position: relative;
             display: block;
@@ -241,24 +191,8 @@ body {
                 }
             }
         }
-        &__sublist {
-            padding: 0;
-            position: relative;
-            flex: 1 1 100%;
-            background-color: #fff;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transform: translate(0, 10%);
-            height: 0;
-            transition: all .3s ease;
-        }
         &__link {
             font-size: 24px;
-        }
-        &__sublink {
-            font-size: 20px;
-            color: #000;
         }
     }
     .menu__burger span, .menu__burger::before, .menu__burger::after {

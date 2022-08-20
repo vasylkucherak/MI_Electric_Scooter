@@ -1,0 +1,374 @@
+@font-face {
+  font-family: Gilroy;
+  font-display: swap;
+  src: url("../fonts/Gilroy-Bold.woff") format("woff"), url("../fonts/Gilroy-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Gilroy;
+  font-display: swap;
+  src: url("../fonts/Gilroy-Medium.woff") format("woff"), url("../fonts/Gilroy-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Gilroy;
+  font-display: swap;
+  src: url("../fonts/Gilroy-Regular.woff") format("woff"), url("../fonts/Gilroy-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Gilroy;
+  font-display: swap;
+  src: url("../fonts/Gilroy-Semibold.woff") format("woff"), url("../fonts/Gilroy-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@keyframes heartbeat {
+  from {
+    transform: scale(1);
+  }
+  12% {
+    transform: scale(1.15);
+  }
+  25% {
+    transform: scale(1);
+  }
+  37% {
+    transform: scale(1.08);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+.fadeIn {
+  animation-name: fadeIn;
+  pointer-events: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fadeOut {
+  animation-name: fadeOut;
+  pointer-events: none;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, header, footer, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  font-size: 14px;
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+body {
+  font-family: "Gilroy";
+  font-weight: 400;
+  color: #000;
+  box-sizing: border-box;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1200px;
+  /* @media (max-width: $pc) {
+      max-width: 970px;
+  }
+  @media (max-width: $tablet) {
+      max-width: 750px;
+  } */
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+.header {
+  margin-top: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 10;
+}
+.header__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 54px;
+  padding: 15px 20px;
+}
+.header__logo {
+  position: relative;
+  z-index: 5;
+  width: 60px;
+  height: 40px;
+}
+
+html .menu {
+  flex: 1 1 100%;
+  margin: 0 40px;
+}
+html .menu__link {
+  color: #F1F1F1;
+  transition: color 0.3s;
+}
+html .menu__list > li {
+  margin: 0 10px;
+  position: relative;
+}
+html.light .menu__link {
+  color: #151515;
+}
+html.dark .menu__link {
+  color: #F1F1F1;
+}
+
+body.lock {
+  overflow: hidden;
+}
+body._cursor .menu__link:hover {
+  color: #fd4900;
+}
+body._touch .menu__list > li {
+  display: flex;
+  align-items: center;
+}
+body._touch .menu__link {
+  flex: 1 1 auto;
+}
+body._touch .menu__link:active {
+  text-decoration: underline;
+}
+
+@media (min-width: 991.98px) {
+  .menu__list {
+    display: flex;
+    align-items: center;
+  }
+  .menu__link {
+    padding: 10px;
+  }
+}
+@media (max-width: 991.98px) {
+  .header-btn {
+    display: none;
+  }
+  html .menu {
+    flex: 0 0 54px;
+    margin: 0;
+    border-radius: 50%;
+    height: 54px;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  html .menu__burger {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 5;
+  }
+  html .menu__burger span {
+    top: 50%;
+    transform: scale(1) translateY(-50%);
+  }
+  html .menu__burger::before {
+    content: "";
+    top: 0;
+  }
+  html .menu__burger::after {
+    content: "";
+    bottom: 0;
+  }
+  html .menu__burger.active span {
+    transform: scale(0) translateY(-50%);
+  }
+  html .menu__burger.active::before {
+    top: 50%;
+    transform: rotate(-45deg) translate(3%, -20%);
+  }
+  html .menu__burger.active::after {
+    bottom: 50%;
+    transform: rotate(45deg) translate(3%, 20%);
+  }
+  html .menu__body {
+    padding: 100px 30px 30px 30px;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    transition: all 0.3s ease;
+    overflow: auto;
+  }
+  html .menu__body.active {
+    left: 0;
+    top: 0;
+  }
+  html .menu__body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 54px;
+    background-color: transparent;
+    z-index: 2;
+  }
+  html .menu__list {
+    width: 100%;
+  }
+  html .menu__list > li {
+    margin: 0 0 30px 0;
+    flex-wrap: wrap;
+  }
+  html .menu__list > li:last-child {
+    margin-bottom: 0;
+  }
+  html .menu__list > li.active .menu {
+    display: block;
+  }
+  html .menu__link {
+    font-size: 24px;
+  }
+  .menu__burger span, .menu__burger::before, .menu__burger::after {
+    position: absolute;
+    left: 0;
+    height: 10%;
+    width: 100%;
+    background-color: #231f20;
+    transition: all 0.3s ease;
+  }
+}
+.btn {
+  height: 54px;
+  left: 1178px;
+  padding: 0 36px;
+  background: #F1F1F1;
+  border-radius: 65px;
+  font-family: "Gilroy";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #151515;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+html.light {
+  background: #e0e0e0;
+}
+html.dark {
+  background: #222;
+}
+
+body._cursor .btn:hover {
+  background-color: rgba(253, 73, 0, 0.8);
+  color: #fff;
+}
+body._touch .btn:active {
+  background-color: rgba(253, 73, 0, 0.8);
+  color: #fff;
+}
