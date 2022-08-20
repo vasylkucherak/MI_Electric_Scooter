@@ -1,17 +1,40 @@
+//* button
 .btn {
-    //width: 122px;
     height: 54px;
     left: 1178px;
     padding: 0 36px;
-    background: #F1F1F1;
     border-radius: 65px;
     font-family: 'Gilroy';
     font-weight: 700;
     font-size: 16px;
     line-height: 150%;
-    color: #151515;
     transition: background-color 0.3s, color 0.3s;
 }
+html.light body,
+html.dark body {
+    &._cursor .btn {
+        &:hover {
+            background-color: rgba(253, 73, 0, 0.8);
+            color: #fff;
+        }
+    }
+    &._touch .btn {
+        &:active {
+            background-color: rgba(253, 73, 0, 0.8);
+            color: #fff;
+        }
+    }
+}
+html.light body .btn {
+    background: #151515;
+    color: #f1f1f1;
+}
+html.dark body .btn {
+    background: #f1f1f1;
+    color: #151515;
+}
+
+//* background
 html {
     &.light {
         background: #e0e0e0;
@@ -20,21 +43,12 @@ html {
         background: #222;
     }
 }
-body {
-    &._cursor {
-        .btn {
-            &:hover {
-                background-color: rgba(253, 73, 0, 0.8);
-                color: #fff;
-            }
-        }
-    }
-    &._touch {
-        .btn {
-            &:active {
-                background-color: rgba(253, 73, 0, 0.8);
-                color: #fff;
-            }
-        }
-    }
+
+//* title
+.title {
+    font-family: 'Gilroy';
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 110%;
+    color: #FF4C0D;
 }

@@ -27,7 +27,7 @@ export default function theme() {
                 e.target.disabled = true;
                 setTimeout(() => {
                     e.target.disabled = false;
-                }, 300);
+                }, 1000);
             });
         }
 
