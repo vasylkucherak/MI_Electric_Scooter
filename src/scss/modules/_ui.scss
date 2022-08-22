@@ -8,7 +8,7 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 150%;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.5s, color 0.5s;
 }
 html.light body,
 html.dark body {
@@ -36,6 +36,7 @@ html.dark body .btn {
 
 //* background
 html {
+    transition: background 0.5s;
     &.light {
         background: #e0e0e0;
     }

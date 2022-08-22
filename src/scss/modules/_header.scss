@@ -13,8 +13,8 @@ $burgerHeight: 16px;
 $burgerColor: #231f20; //колір
 
 //? Панель меню (max-width: 767px) ==========================================================================================================================================
-$transitionHorizontalPosition: 0; // поява панелі меню (зверху: -100% / знизу: 100% / відміна: 0)
-$transitionVerticalPosition: -100%; // поява панелі меню (зліва: -100% / зправа: 100% / відміна: 0)
+$transitionHorizontalPosition: 0;
+$transitionVerticalPosition: -100%;
 
 .header {
     margin-top: 15px;
@@ -45,7 +45,7 @@ html {
         margin: 0 40px;
         &__link {
             color: #F1F1F1;
-            transition: color 0.3s;
+            transition: color 0.5s;
             font-size: 16px;
             font-weight: 600;
         }
@@ -183,6 +183,9 @@ body {
                 height: 100%;
                 transition: all .3s ease;
                 overflow: auto;
+                @media (max-width: 500px) {
+                    width: 100%;
+                }
                 &.active {
                     right: 0;
                     top: 0;
@@ -204,6 +207,9 @@ body {
             &__list > li {
                 margin: 0 0 30px 0;
                 flex-wrap: wrap;
+                @media (max-width: 500px) {
+                    text-align: center;
+                }
                 &:last-child {
                     margin-bottom: 0;
                 }
