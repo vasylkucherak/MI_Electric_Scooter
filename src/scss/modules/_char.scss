@@ -1,0 +1,116 @@
+.char {
+    &__title {
+        margin-bottom: 55px;
+    }
+    &__tab, .tab {
+        position: relative;
+        margin-bottom: 120px;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.5;
+            transition: all 0.5s;
+        }
+        &__content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        &__item {
+            flex: 0 0 calc((100% - 80px) / 3);
+            cursor: pointer;
+            &._active {
+                .tab__title {
+                    opacity: 1;
+                }
+                .tab__line {
+                    background: #FF4C0D;
+                }
+                .tab__descr {
+                    opacity: 1;
+                }
+            }
+        }
+        &__title {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 120%;
+            opacity: 0.5;
+            margin-bottom: 16px;
+            transition: opacity 0.5s;
+        }
+        &__line {
+            width: 100%;
+            height: 3px;
+            margin-bottom: 14px;
+            transition: all 0.5s;
+        }
+        &__descr {
+            font-size: 14px;
+            line-height: 150%;
+            letter-spacing: -0.01em;
+            opacity: 0.5;
+            transition: opacity 0.5s;
+        }
+        &__images {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        &__img {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            &._active {
+                opacity: 1;
+            }
+            img {
+                height: 400px;
+                width: 100%;
+                max-width: 760px;
+                border-radius: 15px;
+                object-fit: cover;
+                &:nth-child(2) {
+                    width: 360px;
+                    height: 300px;
+                }
+            }
+        }
+    }
+}
+html {
+    &.light {
+        .char {
+            &__tab {
+                &::before {
+                    background: #151515;
+                }
+            }
+        }
+
+    }
+    &.dark {
+        .char {
+            &__tab {
+                &::before {
+                    background: #F1F1F1;
+                }
+            }
+        }
+    }
+}

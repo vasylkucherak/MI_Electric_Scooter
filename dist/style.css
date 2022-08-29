@@ -432,8 +432,14 @@ html {
 html.light {
   background: #e0e0e0;
 }
+html.light body {
+  color: #151515;
+}
 html.dark {
   background: #222;
+}
+html.dark body {
+  color: #F1F1F1;
 }
 
 .title {
@@ -441,7 +447,13 @@ html.dark {
   font-weight: 500;
   font-size: 45px;
   line-height: 110%;
-  color: #FF4C0D;
+}
+
+html.light .title {
+  color: #151515;
+}
+html.dark .title {
+  color: #F1F1F1;
 }
 
 html.light .promo__bg {
@@ -538,6 +550,7 @@ html.dark .promo .theme-btn .black {
   font-size: 80px;
   line-height: 100%;
   margin-bottom: 30px;
+  color: #FF4C0D;
 }
 @media (max-width: 1160px) {
   .promo__title {
@@ -608,4 +621,103 @@ html.dark .promo .theme-btn .black {
 }
 .promo .theme-btn div.black {
   color: #f1f1f1;
+}
+
+.char__title {
+  margin-bottom: 55px;
+}
+.char__tab, .char .tab {
+  position: relative;
+  margin-bottom: 120px;
+}
+.char__tab::before, .char .tab::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+.char__tab__content, .char .tab__content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+.char__tab__item, .char .tab__item {
+  flex: 0 0 calc((100% - 80px) / 3);
+  cursor: pointer;
+}
+.char__tab__item._active .tab__title, .char .tab__item._active .tab__title {
+  opacity: 1;
+}
+.char__tab__item._active .tab__line, .char .tab__item._active .tab__line {
+  background: #FF4C0D;
+}
+.char__tab__item._active .tab__descr, .char .tab__item._active .tab__descr {
+  opacity: 1;
+}
+.char__tab__title, .char .tab__title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  opacity: 0.5;
+  margin-bottom: 16px;
+  transition: opacity 0.5s;
+}
+.char__tab__line, .char .tab__line {
+  width: 100%;
+  height: 3px;
+  margin-bottom: 14px;
+  transition: all 0.5s;
+}
+.char__tab__descr, .char .tab__descr {
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+.char__tab__images, .char .tab__images {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.char__tab__img, .char .tab__img {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.char__tab__img._active, .char .tab__img._active {
+  opacity: 1;
+}
+.char__tab__img img, .char .tab__img img {
+  height: 400px;
+  width: 100%;
+  max-width: 760px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+.char__tab__img img:nth-child(2), .char .tab__img img:nth-child(2) {
+  width: 360px;
+  height: 300px;
+}
+
+html.light .char__tab::before {
+  background: #151515;
+}
+html.dark .char__tab::before {
+  background: #F1F1F1;
 }
