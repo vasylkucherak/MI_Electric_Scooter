@@ -57,6 +57,7 @@ html {
     font-family: 'Gilroy';
     font-weight: 500;
     font-size: 45px;
+    @include adaptiv-value("font-size", 45, 25, 1);
     line-height: 110%;
 }
 html {

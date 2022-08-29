@@ -446,7 +446,13 @@ html.dark body {
   font-family: "Gilroy";
   font-weight: 500;
   font-size: 45px;
+  font-size: 45px;
   line-height: 110%;
+}
+@media (max-width: 1160px) {
+  .title {
+    font-size: calc(25px + ((100vw - 320px) / 840 * 20));
+  }
 }
 
 html.light .title {
@@ -623,12 +629,26 @@ html.dark .promo .theme-btn .black {
   color: #f1f1f1;
 }
 
+.char {
+  margin-top: 60px;
+  margin-bottom: 120px;
+}
+@media (max-width: 1160px) {
+  .char {
+    margin-top: calc(30px + ((100vw - 320px) / 840 * 30));
+  }
+}
+@media (max-width: 1160px) {
+  .char {
+    margin-bottom: calc(60px + ((100vw - 320px) / 840 * 60));
+  }
+}
 .char__title {
   margin-bottom: 55px;
+  max-width: 940px;
 }
 .char__tab, .char .tab {
   position: relative;
-  margin-bottom: 120px;
 }
 .char__tab::before, .char .tab::before {
   content: "";
@@ -641,6 +661,11 @@ html.dark .promo .theme-btn .black {
   opacity: 0.5;
   transition: all 0.5s;
 }
+@media (max-width: 991.98px) {
+  .char__tab::before, .char .tab::before {
+    display: none;
+  }
+}
 .char__tab__content, .char .tab__content {
   width: 100%;
   display: flex;
@@ -648,9 +673,19 @@ html.dark .promo .theme-btn .black {
   gap: 40px;
   margin-bottom: 30px;
 }
+@media (max-width: 991.98px) {
+  .char__tab__content, .char .tab__content {
+    flex-direction: column;
+  }
+}
 .char__tab__item, .char .tab__item {
   flex: 0 0 calc((100% - 80px) / 3);
   cursor: pointer;
+}
+@media (max-width: 991.98px) {
+  .char__tab__item, .char .tab__item {
+    cursor: default;
+  }
 }
 .char__tab__item._active .tab__title, .char .tab__item._active .tab__title {
   opacity: 1;
@@ -661,6 +696,33 @@ html.dark .promo .theme-btn .black {
 .char__tab__item._active .tab__descr, .char .tab__item._active .tab__descr {
   opacity: 1;
 }
+.char__tab__item .tab__image, .char .tab__item .tab__image {
+  display: none;
+}
+@media (max-width: 991.98px) {
+  .char__tab__item .tab__image, .char .tab__item .tab__image {
+    display: block;
+    position: relative;
+    max-width: 760px;
+    width: 100%;
+    padding-bottom: 418px;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  .char__tab__item .tab__image img, .char .tab__item .tab__image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+@media (max-width: 800px) {
+  .char__tab__item .tab__image, .char .tab__item .tab__image {
+    padding-bottom: 55%;
+  }
+}
 .char__tab__title, .char .tab__title {
   font-weight: 600;
   font-size: 20px;
@@ -669,11 +731,23 @@ html.dark .promo .theme-btn .black {
   margin-bottom: 16px;
   transition: opacity 0.5s;
 }
+@media (max-width: 991.98px) {
+  .char__tab__title, .char .tab__title {
+    opacity: 1;
+  }
+}
 .char__tab__line, .char .tab__line {
   width: 100%;
   height: 3px;
   margin-bottom: 14px;
   transition: all 0.5s;
+}
+@media (max-width: 991.98px) {
+  .char__tab__line, .char .tab__line {
+    background: #FF4C0D;
+    width: 150px;
+    transition: none;
+  }
 }
 .char__tab__descr, .char .tab__descr {
   font-size: 14px;
@@ -682,6 +756,12 @@ html.dark .promo .theme-btn .black {
   opacity: 0.5;
   transition: opacity 0.5s;
 }
+@media (max-width: 991.98px) {
+  .char__tab__descr, .char .tab__descr {
+    opacity: 1;
+    margin-bottom: 14px;
+  }
+}
 .char__tab__images, .char .tab__images {
   width: 100%;
   height: 400px;
@@ -689,11 +769,17 @@ html.dark .promo .theme-btn .black {
   justify-content: center;
   position: relative;
 }
+@media (max-width: 991.98px) {
+  .char__tab__images, .char .tab__images {
+    display: none;
+  }
+}
 .char__tab__img, .char .tab__img {
   position: absolute;
   top: 0%;
   left: 0%;
   width: 100%;
+  height: 400px;
   opacity: 0;
   transition: opacity 0.3s;
   display: flex;
@@ -704,15 +790,20 @@ html.dark .promo .theme-btn .black {
   opacity: 1;
 }
 .char__tab__img img, .char .tab__img img {
-  height: 400px;
-  width: 100%;
+  height: 100%;
+  flex: 0 1 760px;
   max-width: 760px;
   border-radius: 15px;
   object-fit: cover;
 }
 .char__tab__img img:nth-child(2), .char .tab__img img:nth-child(2) {
-  width: 360px;
-  height: 300px;
+  flex: 0 1 360px;
+  height: 75%;
+}
+@media (max-width: 1200px) {
+  .char__tab__img img:nth-child(2), .char .tab__img img:nth-child(2) {
+    display: none;
+  }
 }
 
 html.light .char__tab::before {
