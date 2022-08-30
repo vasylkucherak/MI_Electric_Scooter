@@ -812,3 +812,52 @@ html.light .char__tab::before {
 html.dark .char__tab::before {
   background: #F1F1F1;
 }
+
+.speed {
+  padding: 120px 0;
+  background: url("./img/speed_bg/pc.jpg") center right/cover no-repeat;
+}
+@media (max-width: 991.98px) {
+  .speed {
+    padding: 40px 0;
+  }
+}
+@media (max-width: 767.98px) {
+  .speed {
+    background-position: center;
+  }
+}
+.speed__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}
+.speed__logo {
+  margin-bottom: 150px;
+}
+.speed__text {
+  color: #F1F1F1;
+}
+.speed__title {
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 110%;
+  margin-bottom: 30px;
+}
+@media (max-width: 1160px) {
+  .speed__title {
+    font-size: calc(25px + ((100vw - 320px) / 840 * 20));
+  }
+}
+.speed__subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+}
+@media (max-width: 1160px) {
+  .speed__subtitle {
+    font-size: calc(12px + ((100vw - 320px) / 840 * 2));
+  }
+}
