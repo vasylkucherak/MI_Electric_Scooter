@@ -31,6 +31,10 @@ $transitionVerticalPosition: -100%;
         justify-content: space-between;
         min-height: $headerMinHeight;
         padding: 15px $containerPadding + px;
+        @media (max-width: $mobile) {
+            max-width: none;
+            padding: 0 10px;
+        }
     }
     &__logo {
         position: relative;

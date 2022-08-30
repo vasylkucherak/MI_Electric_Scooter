@@ -15,6 +15,9 @@
     }
     &__logo {
         margin-bottom: 150px;
+        @media (max-width: 500px) {
+            width: 45px;
+        }
     }
     &__text {
         color: #F1F1F1;

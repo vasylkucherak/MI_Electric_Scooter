@@ -196,6 +196,12 @@ main {
   min-height: 54px;
   padding: 15px 20px;
 }
+@media (max-width: 767.98px) {
+  .header__container {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
 .header__logo {
   position: relative;
   z-index: 5;
@@ -835,6 +841,11 @@ html.dark .char__tab::before {
 }
 .speed__logo {
   margin-bottom: 150px;
+}
+@media (max-width: 500px) {
+  .speed__logo {
+    width: 45px;
+  }
 }
 .speed__text {
   color: #F1F1F1;
