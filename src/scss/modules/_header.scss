@@ -1,7 +1,6 @@
 //* Шапка сайту
 
 //? Шапка ===================================================================================================================================================================
-$headerColor: transparent; // колір
 $headerMinHeight: 54px; // мінімальна висота
 
 //? Кнопки випадаючого списку ===============================================================================================================================================
@@ -17,13 +16,16 @@ $transitionHorizontalPosition: 0;
 $transitionVerticalPosition: -100%;
 
 .header {
-    margin-top: 15px;
+    padding-top: 15px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: $headerColor;
     z-index: 10;
+    transition: all 0.2s;
+    &._active {
+        backdrop-filter: blur(10px);
+    }
     &__container {
         position: relative;
         display: flex;
@@ -59,11 +61,17 @@ html {
         }
     }
     &.light {
+        .header {
+            background-image: linear-gradient(to top, rgba(241,241,241,0), rgba(241,241,241,1));
+        }
         .menu__link {
             color: #151515;
         }
     }
     &.dark {
+        .header {
+            background-image: linear-gradient(to top, rgba(21,21,21,0), rgba(21,21,21,1));
+        }
         .menu__link {
             color: #F1F1F1;
         }
@@ -118,6 +126,7 @@ body {
     html {
         &.light {
             .menu {
+                background-color: #151515;
                 &__body {
                     background-color: rgba(0, 0, 0, .6);
                 }
@@ -125,9 +134,13 @@ body {
                     color: #F1F1F1;
                 }
             }
+            .menu__burger span, .menu__burger::before, .menu__burger::after {
+                background-color: #f1f1f1;
+            }
         }
         &.dark {
             .menu {
+                background-color: #f1f1f1;
                 &__body {
                     background-color: rgba(255, 255, 255, .6);
                 }
@@ -135,16 +148,19 @@ body {
                     color: #151515;
                 }
             }
+            .menu__burger span, .menu__burger::before, .menu__burger::after {
+                background-color: #151515;
+            }
         }
         .menu {
             flex: 0 0 54px;
             margin: 0;
             border-radius: 50%;
             height: 54px;
-            background-color: #f1f1f1;
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: background-color 0.5s;
             &__burger {
                 position: relative;
                 display: block;
@@ -184,9 +200,10 @@ body {
                 top: $transitionHorizontalPosition;
                 right: $transitionVerticalPosition;
                 width: 400px;
-                height: 100%;
+                height: 100vh;
                 transition: all .3s ease;
                 overflow: auto;
+                backdrop-filter: blur(10px);
                 @media (max-width: 500px) {
                     width: 100%;
                 }
@@ -201,7 +218,6 @@ body {
                     left: 0;
                     width: 100%;
                     height: $headerMinHeight;
-                    background-color: $headerColor;
                     z-index: 2;
                 }
             }
@@ -234,7 +250,6 @@ body {
         left: 0;
         height: 10%;
         width: 100%;
-        background-color: $burgerColor;
         transition: all .3s ease;
     }
 }

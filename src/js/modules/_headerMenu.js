@@ -1,13 +1,26 @@
 //* Меню шапки
 
 export default function headerMenu() {
-
+    const header = document.querySelector('.header');
     const menuBurger = document.querySelector('.menu__burger'); // кнопка бургера
     const menuBody = document.querySelector('.menu__body'); // контейнер для кнопок меню
     const menuLinks = menuBody.querySelectorAll('a'); // кнопки меню
 
+    document.addEventListener('scroll', function(e) {
+        if (document.documentElement.scrollTop > 5) {
+            header.classList.add('_active');
+        } else {
+            header.classList.remove('_active');
+        }
+    });
+
     if (menuBurger) {
         menuBurger.addEventListener('click', function() { // при кліці на кнопку бургера
+            if (menuBurger.classList.contains('active') && document.documentElement.scrollTop > 5) {
+                header.classList.add('_active');
+            } else {
+                header.classList.remove('_active');
+            }
             document.body.classList.toggle('lock'); // забороняємо прокручувати сайт
             menuBurger.classList.toggle('active'); // активуємо анімацію відкриття кнопки бургера
             menuBody.classList.toggle('active'); // показуємо панель меню
@@ -20,6 +33,7 @@ export default function headerMenu() {
                     document.body.classList.remove('lock'); // дозволяємо прокручувати сайт
                     menuBurger.classList.remove('active'); // активуємо анімацію закриття кнопки бургера
                     menuBody.classList.remove('active'); // приховуємо панель меню
+                    header.classList.add('_active');
                 }
             });
         };
