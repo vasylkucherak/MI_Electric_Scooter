@@ -64,6 +64,9 @@ html {
                     height: 110vw;
                 }
             }
+            &__title {
+                color: #FF4C0D;
+            }
         }
     }
 }
@@ -96,7 +99,6 @@ html {
         @include adaptiv-value("font-size", 80, 26, 1);
         line-height: 100%;
         margin-bottom: 30px;
-        color: #FF4C0D;
         @media (max-width: 500px) {
             text-align: center;
         }
