@@ -1,19 +1,25 @@
 .design {
     @include adaptiv-value("margin-top", 120, 60, 1);
     &__title {
+        max-width: 659px;
         @include adaptiv-value("margin-bottom", 70, 30, 1);
     }
     &__content {
         display: grid;
         grid-template: 1fr / repeat(2, 1fr);
-        //grid-template: repeat(2, 1fr) / 1fr;
         @include adaptiv-value("gap", 40, 20, 1);
+        @media (max-width: $mobile) {
+            grid-template: repeat(2, 1fr) / 1fr;
+        }
     }
     &__block {
         position: relative;
         width: 100%;
         overflow: hidden;
         border-radius: 26px;
+        @media (max-width: $mobile) {
+            max-width: 600px;
+        }
     }
     &__img {
         width: 100%;
@@ -25,19 +31,33 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        padding: 40px;
+        @include adaptiv-value("padding", 40, 10, 1);
+        @media (max-width: $tablet) {
+            padding-bottom: 20px;
+        }
+        @media (max-width: 500px) {
+            @include adaptiv-value("padding-bottom", 40, 10, 1);
+            max-width: 560px;
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
     }
     &__label {
         font-weight: 600;
         @include adaptiv-value("font-size", 20, 16, 1);
         line-height: 120%;
         color: #F1F1F1;
-        margin-bottom: 20px;
+        @include adaptiv-value("margin-bottom", 20, 5, 1);
     }
     &__descr {
         @include adaptiv-value("font-size", 14, 12, 1);
         line-height: 150%;
         letter-spacing: -0.01em;
         color: #F1F1F1;
+        @media (max-width: $mobile) {
+            height: 72px;
+        }
     }
 }
