@@ -8,6 +8,7 @@ import touchOrCursor from "./modules/_touchOrCursor.js"; //? Перевірка 
 import theme from "./modules/_theme.js";
 import headerMenu from "./modules/_headerMenu.js"; //? Меню шапки
 import charTab from "./modules/_charTab.js"; //? Таб характеристик
+import securityTab from "./modules/_securityTab.js"; //? Таб про безпеку
 //import spoiler from "./modules/_spoiler.js"; //? Спойлер (або акордіон)
 //import swiperSlider from "./modules/_swiperSlider.js" //? Слайдер Swiper
 //import slickSlider from "./modules/_slickSlider.js" //? Слайдер Slick
@@ -37,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
     headerMenu();
 
     charTab();
+
+    securityTab();
 
     /* spoiler({
         spoilerTrigger: '.spoiler__header',
