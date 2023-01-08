@@ -1,171 +1,21 @@
 .security {
-    @include adaptiv-value("margin-top", 60, 30, 1);
-    @include adaptiv-value("margin-bottom", 120, 60, 1);
-    &__title {
-        margin-bottom: 55px;
-        max-width: 940px;
-    }
     &__tab, .tab {
-        position: relative;
         &::before {
-            content: '';
-            position: absolute;
-            top: 64px;//
-            left: 0;
-            height: 3px;
-            width: 100%;
-            z-index: -1;
-            opacity: 0.5;
-            transition: all 0.5s;
-            @media (max-width: $tablet) {
-                display: none;
-            }
-            
-        }
-        &__content {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 30px;
-            @media (max-width: $tablet) {
-                flex-direction: column;
-            }
+            top: 64px;
         }
         &__item {
-            flex: 0 0 calc((100% - 120px) / 4);//залишити
-            cursor: pointer;
-            @media (max-width: $tablet) {
-                cursor: default;
-            }
-            &._active {
-                .tab__title {
-                    opacity: 1;
-                }
-                .tab__line {
-                    background: #FF4C0D;
-                }
-                .tab__descr {
-                    opacity: 1;
-                }
-            }
-            .tab__image {
-                display: none;
-                @media (max-width: $tablet) {
-                    display: block;
-                    position: relative;
-                    max-width: 760px;
-                    width: 100%;
-                    padding-bottom: 418px;
-                    border-radius: 15px;
-                    overflow: hidden;
-                    img {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
-                }
-                @media (max-width: 800px) {
-                    padding-bottom: 55%;
-                }
-            }
+            flex: 0 0 calc((100% - 120px) / 4);
         }
         &__title {
-            height: 48px;//
-            width: 200px;//
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 120%;
-            opacity: 0.5;
-            margin-bottom: 16px;
-            transition: opacity 0.5s;
-            @media (max-width: $tablet) {
-                opacity: 1;
-            }
+            height: 48px;
+            width: 200px;
         }
-        &__line {
-            width: 100%;
-            height: 3px;
-            margin-bottom: 14px;
-            transition: all 0.5s;
-            @media (max-width: $tablet) {
-                background: #FF4C0D;
-                width: 150px;
-                transition: none;
-            }
-        }
-        &__descr {
-            font-size: 14px;
-            line-height: 150%;
-            letter-spacing: -0.01em;
-            opacity: 0.5;
-            transition: opacity 0.5s;
-            @media (max-width: $tablet) {
-                opacity: 1;
-                margin-bottom: 14px;
-            }
-        }
-        &__images {
-            width: 100%;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            position: relative;
-            @media (max-width: $tablet) {
+        &__img img:nth-child(2) {
+            flex: 0 1 360px;
+            height: 75%;
+            transform: scale(1);
+            @media(max-width: $pc) {
                 display: none;
-            }
-        }
-        &__img {
-            position: absolute;
-            top: 0%;
-            left: 0%;
-            width: 100%;
-            height: 400px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            &._active {
-                opacity: 1;
-            }
-            img {
-                height: 100%;
-                flex: 0 1 760px;
-                max-width: 760px;
-                border-radius: 15px;
-                object-fit: cover;
-                &:nth-child(2) {
-                    flex: 0 1 360px;
-                    height: 75%;
-                    @media(max-width: $pc) {
-                        display: none;
-                    }
-                }
-            }
-        }
-    }
-}
-html {
-    &.light {
-        .char {
-            &__tab {
-                &::before {
-                    background: #151515;
-                }
-            }
-        }
-
-    }
-    &.dark {
-        .char {
-            &__tab {
-                &::before {
-                    background: #F1F1F1;
-                }
             }
         }
     }
