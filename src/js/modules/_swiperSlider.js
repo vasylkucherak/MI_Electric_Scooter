@@ -27,20 +27,17 @@ export default function swiperSlider() {
             draggable: true,
         }, */
         //? Пагінація
-        /* pagination: {
+        pagination: {
             el: '.swiper-pagination',
             type: 'bullets', // bullets | fraction | progressbar
             //* bullets (крапочки)
             clickable: true,
             dynamicBullets: false,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + '">' + (index + 1) + '</span>';
-            },
             //* fraction (частка)
-            renderFraction: function (currentClass, totalClass) {
+            /* renderFraction: function (currentClass, totalClass) {
                 return 'Фото <span class="' + currentClass + '"></span>' + ' із ' + '<span class="' + totalClass + '"></span>';
-            },
-        }, */
+            }, */
+        },
         //? Свайпи на PC
         simulateTouch: true,
         touchRatio: 1,
@@ -118,25 +115,44 @@ export default function swiperSlider() {
         observeSlideChildren: true, */
         //? Адаптив слайдера (mobile first)
         breakpoints: {
-            /* 320: {
-                slidesPerView: 1,
-                spaceBetween: 0,
+            100: {
+                slidesPerView: 1.12,
+                spaceBetween: 40,
+                autoHeight: true,
+            },
+            380: {
+                slidesPerView: 1.10,
+                spaceBetween: 40,
+                autoHeight: true,
+            },
+            430: {
+                slidesPerView: 1.09,
+                spaceBetween: 40,
+                autoHeight: true,
+            },
+            480: {
+                slidesPerView: 1.22,
+                spaceBetween: 40,
                 autoHeight: true,
             },
             768: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            992: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-            }, */
-            1250: {
-                slidesPerView: 3,
+                slidesPerView: 1.72,
                 spaceBetween: 40,
             },
-            1500: {
+            1200: {
+                slidesPerView: 2.52,
+                spaceBetween: 40,
+            },
+            1650: {
                 slidesPerView: 3.5,
+                spaceBetween: 40,
+            },
+            2200: {
+                slidesPerView: 4.5,
+                spaceBetween: 40,
+            },
+            3000: {
+                slidesPerView: 5.5,
                 spaceBetween: 40,
             },
         },

@@ -699,21 +699,29 @@ html {
 //? Пагінація ====================================================================================================================================
 //* крапочки
 .swiper-pagination-bullet {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    font-size: 14px;
+    width: 10px;
+    height: 10px;
+    display: none;
+    @media (max-width: 480px) {
+        display: inline-block;
+    }
 }
 .swiper-wrapper {
     max-width: $maxWidthContainer + px;
     padding: 0 $containerPadding + px;
     margin: 0 auto;
+    @media (max-width: 480px) {
+        padding-bottom: 50px;
+    }
 }
 .swiper-controls {
     margin-top: 30px;
     margin-bottom: 120px;
     display: flex;
     justify-content: space-between;
+    @media (max-width: 480px) {
+        display: none;
+    }
 }
 .swiper-arrows {
     display: flex;
@@ -731,6 +739,9 @@ html {
                 fill: #f1f1f1;
             }
         }
+        .swiper-pagination-bullet {
+            background: #151515; 
+        }
     }
     &.dark {
         .swiper-button-prev,
@@ -738,6 +749,9 @@ html {
             rect {
                 fill: #151515;
             }
+        }
+        .swiper-pagination-bullet {
+            background: #f1f1f1; 
         }
     }
 }

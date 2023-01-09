@@ -2070,10 +2070,14 @@ html.dark .reviews__title {
 }
 
 .swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  font-size: 14px;
+  width: 10px;
+  height: 10px;
+  display: none;
+}
+@media (max-width: 480px) {
+  .swiper-pagination-bullet {
+    display: inline-block;
+  }
 }
 
 .swiper-wrapper {
@@ -2081,12 +2085,22 @@ html.dark .reviews__title {
   padding: 0 20px;
   margin: 0 auto;
 }
+@media (max-width: 480px) {
+  .swiper-wrapper {
+    padding-bottom: 50px;
+  }
+}
 
 .swiper-controls {
   margin-top: 30px;
   margin-bottom: 120px;
   display: flex;
   justify-content: space-between;
+}
+@media (max-width: 480px) {
+  .swiper-controls {
+    display: none;
+  }
 }
 
 .swiper-arrows {
@@ -2100,7 +2114,13 @@ html.light .swiper-button-prev rect,
 html.light .swiper-button-next rect {
   fill: #f1f1f1;
 }
+html.light .swiper-pagination-bullet {
+  background: #151515;
+}
 html.dark .swiper-button-prev rect,
 html.dark .swiper-button-next rect {
   fill: #151515;
+}
+html.dark .swiper-pagination-bullet {
+  background: #f1f1f1;
 }
