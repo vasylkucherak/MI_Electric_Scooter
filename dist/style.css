@@ -1506,17 +1506,18 @@ html.dark .brand__title {
 
 .swiper-button-prev,
 .swiper-button-next {
-  position: absolute;
-  top: 50%;
-  width: calc(var(--swiper-navigation-size) / 44 * 27);
-  height: var(--swiper-navigation-size);
-  margin-top: calc(0px - var(--swiper-navigation-size) / 2);
-  z-index: 10;
+  width: 54px !important;
+  height: 54px;
+  border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--swiper-navigation-color, var(--swiper-theme-color));
+  padding: 0;
+}
+
+.swiper-button-next {
+  transform: rotate(180deg);
 }
 
 .swiper-button-prev.swiper-button-disabled,
@@ -1526,39 +1527,24 @@ html.dark .brand__title {
   pointer-events: none;
 }
 
-.swiper-button-prev:after,
+/* .swiper-button-prev:after,
 .swiper-button-next:after {
-  font-family: swiper-icons;
-  font-size: var(--swiper-navigation-size);
-  text-transform: none !important;
-  letter-spacing: 0;
-  text-transform: none;
-  font-variant: initial;
-  line-height: 1;
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    text-transform: none;
+    font-variant: initial;
+    line-height: 1;
 }
-
-.swiper-button-prev,
-.swiper-rtl .swiper-button-next {
-  left: 10px;
-  right: auto;
-}
-
 .swiper-button-prev:after,
 .swiper-rtl .swiper-button-next:after {
-  content: "prev";
+    content: 'prev';
 }
-
-.swiper-button-next,
-.swiper-rtl .swiper-button-prev {
-  right: 10px;
-  left: auto;
-}
-
 .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
-  content: "next";
-}
-
+    content: 'next';
+} */
 .swiper-button-lock {
   display: none;
 }
@@ -2083,12 +2069,6 @@ html.dark .reviews__title {
   margin-bottom: 0;
 }
 
-.swiper-button-prev:after,
-.swiper-button-next:after {
-  font-size: 40;
-  color: #000;
-}
-
 .swiper-pagination-bullet {
   width: 20px;
   height: 20px;
@@ -2100,4 +2080,27 @@ html.dark .reviews__title {
   max-width: 1160px;
   padding: 0 20px;
   margin: 0 auto;
+}
+
+.swiper-controls {
+  margin-top: 30px;
+  margin-bottom: 120px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.swiper-arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 123px;
+  height: 54px;
+}
+
+html.light .swiper-button-prev rect,
+html.light .swiper-button-next rect {
+  fill: #f1f1f1;
+}
+html.dark .swiper-button-prev rect,
+html.dark .swiper-button-next rect {
+  fill: #151515;
 }

@@ -189,17 +189,17 @@ $slideHeight: 294px; //? висота слайду
 }
 .swiper-button-prev,
 .swiper-button-next {
-    position: absolute;
-    top: 50%;
-    width: calc(var(--swiper-navigation-size) / 44 * 27);
-    height: var(--swiper-navigation-size);
-    margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
-    z-index: 10;
+    width: 54px !important;
+    height: 54px;
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--swiper-navigation-color, var(--swiper-theme-color));
+    padding: 0;
+}
+.swiper-button-next {
+    transform: rotate(180deg);
 }
 .swiper-button-prev.swiper-button-disabled,
 .swiper-button-next.swiper-button-disabled {
@@ -207,7 +207,7 @@ $slideHeight: 294px; //? висота слайду
     cursor: auto;
     pointer-events: none;
 }
-.swiper-button-prev:after,
+/* .swiper-button-prev:after,
 .swiper-button-next:after {
     font-family: swiper-icons;
     font-size: var(--swiper-navigation-size);
@@ -217,24 +217,14 @@ $slideHeight: 294px; //? висота слайду
     font-variant: initial;
     line-height: 1;
 }
-.swiper-button-prev,
-.swiper-rtl .swiper-button-next {
-    left: 10px;
-    right: auto;
-}
 .swiper-button-prev:after,
 .swiper-rtl .swiper-button-next:after {
     content: 'prev';
 }
-.swiper-button-next,
-.swiper-rtl .swiper-button-prev {
-    right: 10px;
-    left: auto;
-}
 .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
     content: 'next';
-}
+} */
 .swiper-button-lock {
     display: none;
 }
@@ -706,13 +696,6 @@ html {
     }
 }
 
-//? стрілки ======================================================================================================================================
-.swiper-button-prev:after,
-.swiper-button-next:after {
-    font-size: 40;
-    color: #000;
-}
-
 //? Пагінація ====================================================================================================================================
 //* крапочки
 .swiper-pagination-bullet {
@@ -726,10 +709,35 @@ html {
     padding: 0 $containerPadding + px;
     margin: 0 auto;
 }
-
-.swiper-button-prev {
+.swiper-controls {
+    margin-top: 30px;
+    margin-bottom: 120px;
+    display: flex;
+    justify-content: space-between;
 }
-.swiper-button-next {
+.swiper-arrows {
+    display: flex;
+    justify-content: space-between;
+    width: 123px;
+    height: 54px;
 }
 .swiper-pagination {
+}
+html {
+    &.light {
+        .swiper-button-prev,
+        .swiper-button-next {
+            rect {
+                fill: #f1f1f1;
+            }
+        }
+    }
+    &.dark {
+        .swiper-button-prev,
+        .swiper-button-next {
+            rect {
+                fill: #151515;
+            }
+        }
+    }
 }
