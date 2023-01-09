@@ -1,0 +1,95 @@
+.brand {
+    background: url('./img/brand/pc.jpg') center / cover no-repeat;
+    height: 600px;
+    @media (min-width: 1440px) {
+        background: url('./img/brand/pc.jpg') center / contain repeat;
+        position: relative;
+        z-index: 5;
+            transform: scaleX(-1);
+        &__content {
+            transform: scaleX(-1);
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            backdrop-filter: blur(5px);
+        }
+        &::after {
+            background: url('./img/brand/pc.jpg') center / contain no-repeat;
+            content: '';
+            transform: scaleX(-1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    }
+    @media (max-width: $tablet) {
+        height: 420px;
+    }
+    @media (max-width: 600px) {
+        background: url('./img/brand/pc.jpg') 70% 0% / cover no-repeat;
+    }
+    @media (max-width: $mobileSmall) {
+        background: url('./img/brand/mobile.jpg') top center / cover no-repeat;
+        height: 525px;
+    }
+    &__container {
+        height: inherit;
+    }
+    &__content {
+        padding: 120px 0;
+        height: inherit;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        @media (max-width: $tablet) {
+            padding: 40px 0;
+        }
+    }
+    &__logo {
+        width: 60px;
+        height: 40px;
+    }
+    &__title {
+        margin-bottom: 32px;
+    }
+    p {
+        width: 460px;
+        @media (max-width: $tablet) {
+            width: 320px;
+        }
+        @media (max-width: 600px) {
+            width: 300px;
+        }
+        @media (max-width: $mobileSmall) {
+            color:#f1f1f1;
+        }
+        &:last-child {
+            margin-top: 15px;
+        }
+    }
+}
+html {
+    &.light {
+        .brand {
+            &__title {
+                color: #FF4C0D;
+            }
+        }
+    }
+    &.dark {
+        .brand {
+            &__title {
+                color: #FF4C0D;
+            }
+        }
+    }
+}

@@ -59,6 +59,9 @@ html {
     font-size: 45px;
     @include adaptiv-value("font-size", 45, 25, 1);
     line-height: 110%;
+    @media (max-width: $tablet) {
+        font-weight: 600;
+    }
 }
 html {
     &.light {

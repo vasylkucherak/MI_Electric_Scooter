@@ -1,11 +1,41 @@
 .speed {
     padding: 120px 0;
-    background: url('./img/speed_bg/pc.jpg') center right / cover no-repeat;
+    background: url('./img/speed_bg/pc.jpg') center right / cover no-repeat;    
     @media (max-width: $tablet) {
         padding: 40px 0;
     }
     @media (max-width: $mobile) {
         background-position: center;
+    }
+    @media (min-width: 1440px) {
+        background: url('./img/speed_bg/pc.jpg') center / contain repeat;
+        position: relative;
+        z-index: 5;
+        transform: scaleX(-1);
+        &__content {
+            transform: scaleX(-1);
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            backdrop-filter: blur(5px);
+        }
+        &::after {
+            background: url('./img/speed_bg/pc.jpg') center / contain no-repeat;
+            content: '';
+            position: absolute;
+            transform: scaleX(-1);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
     }
     &__content {
         display: flex;

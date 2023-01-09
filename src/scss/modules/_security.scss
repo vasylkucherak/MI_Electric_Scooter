@@ -9,6 +9,10 @@
         &__title {
             height: 48px;
             width: 200px;
+            @media (max-width: $tablet) {
+                height: auto;
+                width: auto;
+            }
         }
         &__img img:nth-child(2) {
             flex: 0 1 360px;

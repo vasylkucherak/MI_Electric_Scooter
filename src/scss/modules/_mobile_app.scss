@@ -33,12 +33,18 @@ html {
             &__img {
                 background: url('./img/mobile_app/black.png') top center / cover no-repeat;
             }
+            &__title {
+                color: #FF4C0D;
+            }
         }
     }
     &.dark {
         .mobile_app {
             &__img {
                 background: url('./img/mobile_app/white.png') top center / cover no-repeat;
+            }
+            &__title {
+                color: #FF4C0D;
             }
         }
     }
@@ -67,7 +73,7 @@ html {
             justify-content: space-between;
         }
         &__title {
-            width: 326px;
+            width: 330px;
         }
         &__text {
             width: 326px;
