@@ -632,8 +632,6 @@ html {
                 &__name {
                     color: #151515;
                 }
-                &__review {
-                }
             }
             &__title {
                 color: #FF4C0D;
@@ -646,8 +644,6 @@ html {
                 background: #151515;
                 &__name {
                     color: #f1f1f1;
-                }
-                &__review {
                 }
             }
             &__title {
@@ -714,13 +710,17 @@ html {
         padding-bottom: 50px;
     }
 }
+.swiper-pagination {
+    position: static;
+}
 .swiper-controls {
     margin-top: 30px;
     margin-bottom: 120px;
     display: flex;
     justify-content: space-between;
     @media (max-width: 480px) {
-        display: none;
+        margin: 30px auto;
+        justify-content: center;
     }
 }
 .swiper-arrows {
@@ -728,8 +728,9 @@ html {
     justify-content: space-between;
     width: 123px;
     height: 54px;
-}
-.swiper-pagination {
+    @media (max-width: 480px) {
+        display: none;
+    }
 }
 html {
     &.light {
