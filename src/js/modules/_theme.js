@@ -19,17 +19,19 @@ export default function theme() {
             ! saveUserTheme ? changeTheme() : null;
         });
 
-        const themeBtn = document.querySelector('.theme-btn');
+        const themeBtns = document.querySelectorAll('.theme-btn');
 
-        if (themeBtn) {
-            themeBtn.addEventListener('click', function(e) {
-                changeTheme(true);
-                e.target.disabled = true;
-                setTimeout(() => {
-                    e.target.disabled = false;
-                }, 1000);
-            });
-        }
+        themeBtns.forEach(themeBtn => {
+            if (themeBtn) {
+                themeBtn.addEventListener('click', function(e) {
+                    changeTheme(true);
+                    e.target.disabled = true;
+                    setTimeout(() => {
+                        e.target.disabled = false;
+                    }, 1000);
+                });
+            }
+        });
 
         function setThemeClass() {
             if (saveUserTheme) {

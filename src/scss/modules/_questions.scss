@@ -3,8 +3,17 @@
         display: flex;
         justify-content: space-between;
         gap: 60px;
+        @media (max-width: $tablet) {
+            flex-direction: column;
+        }
     }
     &__column {
+        @media (max-width: $tablet) {
+            max-width: 700px;
+        }
+        @media (max-width: 800px) {
+            max-width: 500px;
+        }
     }
     &__title {
         margin-bottom: 30px;
