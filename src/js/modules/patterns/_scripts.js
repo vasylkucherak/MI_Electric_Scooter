@@ -55,6 +55,9 @@ elem.offsetHeight;
 
 //*======= Отримання позиції сторінки ==============================================================================================================================
 document.documentElement.scrollTop
+document.documentElement.scrollWidth
+document.documentElement.clientWidth
+document.documentElement.offsetWidth
 
 //*======= Звертання до тегів ==============================================================================================================================
 document.getElementById('');
