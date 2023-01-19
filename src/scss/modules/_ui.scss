@@ -9,6 +9,7 @@
     font-size: 16px;
     line-height: 150%;
     transition: background-color 0.5s, color 0.5s;
+    z-index: 2;
 }
 html.light body,
 html.dark body {

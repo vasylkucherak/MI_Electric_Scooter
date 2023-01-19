@@ -429,6 +429,7 @@ body._touch .menu__link:active {
   font-size: 16px;
   line-height: 150%;
   transition: background-color 0.5s, color 0.5s;
+  z-index: 2;
 }
 
 html.light body._cursor .btn:hover,
@@ -2212,6 +2213,21 @@ html.light .questions__title, html.dark .questions__title {
   width: 966px;
   height: 660px;
 }
+@media (max-width: 750px) {
+  .buy__container::after {
+    left: 25%;
+  }
+}
+@media (max-width: 580px) {
+  .buy__container::after {
+    left: 15%;
+  }
+}
+@media (max-width: 500px) {
+  .buy__container::after {
+    display: none;
+  }
+}
 .buy__card {
   height: 550px;
   background: #151515;
@@ -2224,6 +2240,12 @@ html.light .questions__title, html.dark .questions__title {
   .buy__card {
     flex-direction: column;
     justify-content: space-between;
+  }
+}
+@media (max-width: 500px) {
+  .buy__card {
+    height: auto;
+    padding: 30px 0;
   }
 }
 .buy__block {
@@ -2242,10 +2264,37 @@ html.light .questions__title, html.dark .questions__title {
   color: #FF4C0D;
   margin-bottom: 30px;
 }
+@media (max-width: 500px) {
+  .buy__price {
+    text-align: center;
+  }
+}
+@media (max-width: 500px) {
+  .buy__info {
+    margin: 0 auto;
+  }
+}
+.buy__img {
+  height: 380px;
+  width: 100%;
+}
+@media (min-width: 501px) {
+  .buy__img {
+    display: none;
+  }
+}
 .buy__btn {
   background: #FF4C0D;
 }
+@media (max-width: 500px) {
+  .buy__btn {
+    margin: 0 auto 20px auto;
+  }
+}
 
+html.light body .buy__img {
+  background: url("./img/buy/black.png") center/contain no-repeat;
+}
 html.light body .buy__card {
   background: #f1f1f1;
 }
@@ -2265,6 +2314,9 @@ html.light body .buy__container::after {
 }
 html.light body .spoiler-content {
   background-color: #f1f1f1;
+}
+html.dark body .buy__img {
+  background: url("./img/buy/white.png") center/contain no-repeat;
 }
 html.dark body .buy__card {
   background: #151515;
@@ -2295,6 +2347,11 @@ html.dark body .spoiler-content {
 @media (max-width: 991.98px) {
   .spoiler {
     margin-top: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .spoiler {
+    margin: 0 auto;
   }
 }
 .spoiler-header {

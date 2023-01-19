@@ -10,6 +10,15 @@
             left: 30%;
             width: 966px;
             height: 660px;
+            @media (max-width: 750px) {
+                left: 25%;
+            }
+            @media (max-width: 580px) {
+                left: 15%;
+            }
+            @media (max-width: 500px) {
+                display: none;
+            }
         }
     }
     &__card {
@@ -22,6 +31,10 @@
         @media (max-width:$tablet) {
             flex-direction: column;
             justify-content: space-between;
+        }
+        @media (max-width: 500px) {
+            height: auto;
+            padding: 30px 0;
         }
     }
     &__block {
@@ -39,9 +52,27 @@
         line-height: 110%;
         color: #FF4C0D;
         margin-bottom: 30px;
+        @media (max-width: 500px) {
+            text-align: center;
+        }
+    }
+    &__info {
+        @media (max-width: 500px) {
+            margin: 0 auto;
+        }
+    }
+    &__img {
+        height: 380px;
+        width: 100%;
+        @media (min-width: 501px) {
+            display: none;
+        }
     }
     &__btn {
         background: #FF4C0D;
+        @media (max-width: 500px) {
+            margin: 0 auto 20px auto;
+        }
     }
 }
 
@@ -49,6 +80,9 @@ html {
     &.light {
         body {
             .buy {
+                &__img {
+                    background: url('./img/buy/black.png') center / contain no-repeat;
+                }
                 &__card{
                     background:#f1f1f1;
                 }
@@ -81,7 +115,10 @@ html {
     &.dark {
         body {
             .buy {
-                &__card{
+                &__img {
+                    background: url('./img/buy/white.png') center / contain no-repeat;
+                }
+                &__card {
                     background:#151515;
                 }
                 &__btn {
@@ -121,6 +158,9 @@ html {
     z-index: 2;
     @media (max-width:$tablet) {
         margin-top: 20px;
+    }
+    @media (max-width: 500px) {
+        margin: 0 auto;
     }
     &-header {
         position: relative;
