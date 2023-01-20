@@ -2226,7 +2226,7 @@ html.light .questions__title, html.dark .questions__title {
   }
 }
 .buy__card {
-  height: 550px;
+  min-height: 550px;
   background: #151515;
   border-radius: 15px;
   padding: 60px;
@@ -2241,7 +2241,6 @@ html.light .questions__title, html.dark .questions__title {
 }
 @media (max-width: 500px) {
   .buy__card {
-    height: auto;
     padding: 30px 0;
   }
 }
@@ -2343,7 +2342,7 @@ html.dark body .spoiler-content {
 }
 @media (max-width: 991.98px) {
   .spoiler {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 }
 @media (max-width: 500px) {
@@ -2410,11 +2409,26 @@ html.dark body .spoiler-content {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 767.98px) {
+  .footer__container {
+    flex-direction: column;
+  }
+}
 .footer__box {
   line-height: 150%;
 }
 .footer__box:last-child {
   text-align: right;
+}
+@media (max-width: 767.98px) {
+  .footer__box:last-child {
+    text-align: center;
+  }
+}
+@media (max-width: 767.98px) {
+  .footer__box {
+    text-align: center;
+  }
 }
 .footer__box p {
   padding: 5px 0;

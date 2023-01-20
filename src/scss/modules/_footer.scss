@@ -4,11 +4,20 @@
     &__container {
         display: flex;
         justify-content: space-between;
+        @media (max-width: $mobile) {
+            flex-direction: column;
+        }
     }
     &__box {
         line-height: 150%;
         &:last-child {
             text-align: right;
+            @media (max-width: $mobile) {
+                text-align: center;
+            }
+        }
+        @media (max-width: $mobile) {
+            text-align: center;
         }
         p {
             padding: 5px 0;

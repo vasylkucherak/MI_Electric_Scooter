@@ -21,7 +21,7 @@
         }
     }
     &__card {
-        height: 550px;
+        min-height: 550px;
         background: #151515;
         border-radius: 15px;
         padding: 60px;
@@ -32,7 +32,6 @@
             justify-content: space-between;
         }
         @media (max-width: 500px) {
-            height: auto;
             padding: 30px 0;
         }
     }
@@ -156,7 +155,7 @@ html {
     position: relative;
     z-index: 2;
     @media (max-width:$tablet) {
-        margin-top: 20px;
+        margin-top: 40px;
     }
     @media (max-width: 500px) {
         margin: 0 auto;
