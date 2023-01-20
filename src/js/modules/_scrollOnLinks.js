@@ -1,6 +1,6 @@
 //* Плавний скрол при при переході по ссилці (локальній)
 
-export default function scrollOnLinks({linksAttribue = '[href^="#"]', scrollSpeed = 0.2}) {
+export default function scrollOnLinks({linksAttribue = '[href^="#"]', scrollSpeed = 0.2, headerHeight = 0}) {
 
     const links = document.querySelectorAll(linksAttribue); // або по [data-link]
     const speed = scrollSpeed; // із збільшенням значення швидкість зменшується
@@ -13,7 +13,7 @@ export default function scrollOnLinks({linksAttribue = '[href^="#"]', scrollSpee
 
             let widthTop = document.documentElement.scrollTop;
             let hash = this.hash;
-            let toBlock = document.querySelector(hash).getBoundingClientRect().top;
+            let toBlock = document.querySelector(hash).getBoundingClientRect().top - headerHeight;
             let start = null;
 
             requestAnimationFrame(step);
@@ -25,14 +25,13 @@ export default function scrollOnLinks({linksAttribue = '[href^="#"]', scrollSpee
 
                 let progress = time - start;
                 let r = (toBlock < 0 ? Math.max(widthTop - progress/speed, widthTop + toBlock) : Math.min(widthTop + progress/speed, widthTop + toBlock));
-                
                 document.documentElement.scrollTo(0, r);
 
                 if (r != widthTop + toBlock) {
                     requestAnimationFrame(step);
-                } else {
+                }/*  else {
                     location.hash = hash;
-                }
+                } */
             }
         });
     };

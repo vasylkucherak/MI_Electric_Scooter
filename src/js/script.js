@@ -14,7 +14,7 @@ import swiperSlider from "./modules/_swiperSlider.js" //? Слайдер Swiper
 //import slickSlider from "./modules/_slickSlider.js" //? Слайдер Slick
 //import form from "./modules/_form.js"; //? Форма
 //import popup from "./modules/_popup.js"; //? Модальне вікно
-//import scrollOnLinks from "./modules/_scrollOnLinks.js"; //? Плавний скрол при при переході по ссилці
+import scrollOnLinks from "./modules/_scrollOnLinks.js"; //? Плавний скрол при при переході по ссилці
 //import scrollUpBtn from "./modules/_scrollUpBtn.js"; //? Скрол на початок сайту при кліці на кнопку вверх
 //import animationByScroll from "./modules/_animationByScroll.js"; //? Спрацювання анімації при скролі
 //import slideUpDownToggle from "./modules/_slideUpDownToggle.js"; //? Створення анімацій slideUp, slideDown і slideToggle як у jQuery
@@ -67,10 +67,11 @@ document.addEventListener('DOMContentLoaded', function() {
         closeOnBgClick: true
     }); */
 
-    /* scrollOnLinks({
+    scrollOnLinks({
         linksAttribue: '[href^="#"]',
-        scrollSpeed: 0.2
-    }); */
+        scrollSpeed: 0.25,
+        headerHeight: 100
+    });
 
     /* scrollUpBtn({
         breakpoint: 1650
