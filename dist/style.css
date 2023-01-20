@@ -2198,9 +2198,6 @@ html.light .questions__title, html.dark .questions__title {
   color: #FF4C0D;
 }
 
-.buy {
-  margin-bottom: 100px;
-}
 .buy__container {
   padding-top: 105px;
   position: relative;
@@ -2404,4 +2401,41 @@ html.dark body .spoiler-content {
 }
 .spoiler-content .kit__list li:last-child {
   margin-bottom: 0;
+}
+
+.footer {
+  margin: 60px 0;
+}
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+}
+.footer__box {
+  line-height: 150%;
+}
+.footer__box:last-child {
+  text-align: right;
+}
+.footer__box p {
+  padding: 5px 0;
+}
+.footer__box p:last-child {
+  margin-bottom: 0;
+}
+.footer a {
+  transition: color 0.3s;
+  padding: 5px 0;
+}
+
+html.light .footer a {
+  color: #151515;
+}
+html.light .footer a:hover {
+  color: #fd4900;
+}
+html.dark .footer a {
+  color: #F1F1F1;
+}
+html.dark .footer a:hover {
+  color: #fd4900;
 }
