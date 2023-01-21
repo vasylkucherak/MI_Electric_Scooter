@@ -13,7 +13,7 @@ import spoiler from "./modules/_spoiler.js"; //? Спойлер (або акор
 import swiperSlider from "./modules/_swiperSlider.js" //? Слайдер Swiper
 //import slickSlider from "./modules/_slickSlider.js" //? Слайдер Slick
 //import form from "./modules/_form.js"; //? Форма
-//import popup from "./modules/_popup.js"; //? Модальне вікно
+import popup from "./modules/_popup.js"; //? Модальне вікно
 import scrollOnLinks from "./modules/_scrollOnLinks.js"; //? Плавний скрол при при переході по ссилці
 //import scrollUpBtn from "./modules/_scrollUpBtn.js"; //? Скрол на початок сайту при кліці на кнопку вверх
 //import animationByScroll from "./modules/_animationByScroll.js"; //? Спрацювання анімації при скролі
@@ -55,6 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
         imageInputId: 'formImage',
         previewId: 'formPreview'
     }); */
+
+    popup({
+        triggersSelector: '[data-popup]',
+        popupSelector: '.popup',
+        closeSelector: '[data-close]',
+        destroyTrigger: false,
+        openWhenScrollEnded: false,
+        openWhenTimeEnded: 0,
+        closeOnEscape: true,
+        closeOnBgClick: false
+    });
 
     /* popup({
         triggersSelector: '[data-popup]',

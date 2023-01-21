@@ -76,6 +76,7 @@ export default function popup({triggersSelector, popupSelector, closeSelector, d
         let scrollWidth = div.offsetWidth - div.clientWidth;
         div.remove();
 
+        console.log(scrollWidth);
         return scrollWidth;
     }
 
@@ -94,4 +95,19 @@ export default function popup({triggersSelector, popupSelector, closeSelector, d
             }
         }, time);
     }
+
+
+    const importRadioBtn = document.querySelectorAll('.import'),
+          payRadioBtn = document.querySelectorAll('.pay');
+
+    const toggleRadioBtn = (selectors) => {
+        selectors.forEach(selector => {
+            selector.addEventListener('click', () => {
+                selectors.forEach(selector => selector.classList.remove('active'));
+                selector.classList.add('active'); 
+            });
+        });
+    }
+    toggleRadioBtn(importRadioBtn);
+    toggleRadioBtn(payRadioBtn);
 }

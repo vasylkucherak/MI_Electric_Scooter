@@ -120,10 +120,10 @@ body {
     }
 }
 @media (max-width: $tablet) {
-    .header-btn {
-        display: none;
-    }
     html {
+        .header-btn {
+            display: none;
+        }
         &.light {
             .menu {
                 background-color: #151515;

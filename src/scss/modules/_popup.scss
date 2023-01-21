@@ -1,0 +1,339 @@
+//* Модальне вікно сайту
+
+//? Діалогове вікно =======================================================================================================================================================
+$popupMaxWidth: 880px;
+$popupMaxHeight: 100%;
+$popupMargin: 50px 20px;
+$popupPadding: 60px;
+$popupBorderRadius: 15px;
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1000;
+    &__dialog {
+        position: relative;
+        margin: $popupMargin;
+        padding: $popupPadding;
+        max-width: $popupMaxWidth;
+        border-radius: $popupBorderRadius;
+        max-height: $popupMaxHeight;
+    }
+    &__close {
+        position: absolute;
+        top: 8px;
+        right: 14px;
+        font-size: 30px;
+        color: #333;//
+        font-weight: 700;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        transition: all .3s;
+    }
+    &__title {
+    }
+    &__subtitle {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 120%;
+        margin-bottom: 15px;
+    }
+    &__input {
+        display: block;
+        margin: 20px auto 20px auto;
+        width: 280px;
+        height: 50px;
+        background: #fff;
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        padding: 0 20px;
+        outline: 0;
+    }
+    .btn {
+        display: block;
+        width: 280px;
+        margin: 0 auto;
+    }
+}
+body._cursor .popup__close:hover {
+    color: #fd4900;
+    transform: scale(1.1);
+}
+//==================
+
+.step {
+    min-height: 125px;
+    margin: 0 auto;
+    padding: 20px 0;
+    min-height: 85px;
+    &.lastStep {
+        padding: 17px 0px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        label {
+            width: calc(100% - 230px);
+            height: 22px;
+            cursor: pointer;
+            .agree {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                margin-bottom: 6px;
+                position: relative;
+                min-width: 20px;
+                height: 20px;
+                transform: translate(2px, 2px);
+                z-index: 20;
+                cursor: pointer;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 3px;
+                    border: 3px solid #fd4900;
+                }
+                &:checked  {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 3px;
+                    background: linear-gradient(114.93deg, #fd4900 5.11%, #fd4900 94%);
+                }
+            }
+            span, .policy {
+                padding-left: 15px;
+                .policy {
+                    padding-left: 5px;
+                    color: #fd4900;
+
+                }
+            }
+        }
+    }
+    div {
+        &.step-1 {
+            display: grid;
+            grid-template: 60px / repeat(2, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+        &.step-2 {
+            display: grid;
+            grid-template: repeat(3, 60px) / repeat(6, 1fr);
+            gap: 15px;
+            max-width: 700px;
+            .i-1 {
+                grid-row: 1 / 2;
+                grid-column: 1 / 4;
+            }
+            .i-2 {
+                grid-row: 1 / 2;
+                grid-column: 4 / 7;
+            }
+            .i-3 {
+                grid-row: 2 / 3;
+                grid-column: 1 / 3;
+            }
+            .i-4 {
+                grid-row: 2 / 3;
+                grid-column: 3 / 5;
+            }
+            .i-5 {
+                grid-row: 2 / 3;
+                grid-column: 5 / 7;
+            }
+            .i-6 {
+                grid-row: 3 / 4;
+                grid-column: 1 / 7;
+            }
+        }
+        input {
+            width: 100%;
+            height: 54px;
+            border-radius: 65px;
+            padding: 0 30px;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 150%;
+        }
+    }
+    .radio, .radio-3 {
+        margin-bottom: 30px;
+        display: grid;
+        grid-template: 54px / repeat(2, 1fr);
+        gap: 1px;
+        max-width: 382px;
+        height: 54px;
+        border: 3px solid #fd4900;
+        background: #fd4900;
+        border-radius: 65px;
+        overflow: hidden;
+        &-3 {
+            grid-template: 54px / repeat(3, 1fr);
+            max-width: 573px;
+        }
+        &__btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            height: 100%;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 33px;
+            text-align: center;
+            cursor: pointer;
+            &.active {
+                background: linear-gradient(114.93deg, #fd4900 5.11%, #fd4900 94%);
+            }
+        }
+    }
+    &__title {
+        margin-bottom: 20px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 19px;
+        color: #FFFFFF;
+    }
+    label {
+        display: flex;
+        align-items: center;
+    }
+    span {
+        padding-left: 15px;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 22px;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+    .radio-call {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        position: relative;
+        margin-bottom: 6px;
+        width: 20px;
+        height: 20px;
+        transform: translate(2px, 2px);
+        cursor: pointer;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 3px solid #fd4900;
+        }
+        &:checked  {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(114.93deg, #fd4900 5.11%, #fd4900 94%);
+        }
+    }
+}
+html {
+    &.light {
+        .popup {
+            background-color: rgba(0, 0, 0, .5);
+            &__dialog {
+                background-color: #f1f1f1;
+            }
+            &__title {
+                color: #fd4900;
+            }
+        }
+        .step {
+            div {
+                input {
+                    background-color: #151515;
+                    color: #f1f1f1;
+                }
+            }
+            .radio, .radio-3 {
+                &__btn {
+                    background-color: #151515;
+                    color: #f1f1f1;
+                }
+            }
+            label {
+                span, a {
+                    color: #151515;
+                }
+            }
+            /* &.lastStep {
+                label {
+                    .agree {
+                        &:before {
+                            background:#151515;
+                        }
+                    }
+                }
+            }
+            .radio-call {
+                &:before {
+                    background:#151515;
+                }
+            } */
+        }
+    }
+    &.dark {
+        .popup {
+            background-color: rgba(255, 255, 255, .1);
+            &__dialog {
+                background-color: #151515;
+            }
+            &__title {
+                color: #fd4900;
+            }
+        }
+        .step {
+            div {
+                input {
+                    background-color: #f1f1f1;
+                    color: #151515;
+                }
+            }
+            .radio, .radio-3 {
+                &__btn {
+                    background-color: #f1f1f1;
+                    color: #151515;
+                }
+            }
+            label {
+                span, a {
+                    color: #f1f1f1;
+                }
+            }
+            /* &.lastStep {
+                label {
+                    .agree {
+                        &:before {
+                            background:#f1f1f1;
+                        }
+                    }
+                }
+            }
+            .radio-call {
+                &:before {
+                    background:#f1f1f1;
+                }
+            } */
+        }
+    }
+}

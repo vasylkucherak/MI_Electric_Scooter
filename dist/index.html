@@ -12,7 +12,7 @@
     <div class="page">
         <header class="header">
             <div class="header__container container">
-                <img class="header__logo" src="icons/logo_orange.png" alt="logo icon">
+                <a href="#up"><img class="header__logo" src="icons/logo_orange.png" alt="logo icon"></a>
                 <div class="header__menu menu">
                     <div class="menu__burger">
                         <span></span>
@@ -31,7 +31,7 @@
             </div>
         </header>
         <main>
-            <section class="promo">
+            <section class="promo" id="up">
                 <div class="promo__bg"></div>
                 <div class="promo__container container">
                     <h1 class="promo__title title">Стильний електросамокат<br>з потужним акамулятором</h1>
@@ -375,7 +375,7 @@
                                 </button>
                             </div>
                             <div class="buy__img"></div>
-                            <button class="buy__btn btn">Купити</button>  
+                            <button class="buy__btn btn" data-popup>Купити</button>  
                         </div>
 
                         <div class="spoiler">
@@ -430,7 +430,65 @@
         </footer>
         
     </div>
-    
+    <div class="popup">
+        <div class="popup__dialog">
+            <form action="#">
+                <div class="popup__close" data-close>&times;</div>
+                <div class="popup__title title">Купити Mi Scooter Pro 2</div>
+                <div class="step">
+                    <h3 class="popup__subtitle">1. Контактна інформація</h3>
+                    <div class="step-1">
+                        <input required placeholder="Ім'я*" name="name" type="text" class="checkRequired">
+                        <input required placeholder="Номер телефону*" name="phone" type="phone" class="checkRequired">
+                    </div>
+                </div>
+                <div class="step">
+                    <h2 class="popup__subtitle">2. Доставка</h2>
+                    <div class="radio">
+                        <div class="radio__btn import active">Доставка</div>
+                        <div class="radio__btn import">Самовивіз</div>
+                    </div>
+                    <p class="popup__subtitle">Адреса доставки</p>
+                    <div class="step-2">
+                        <input class="i-1 checkRequired" required placeholder="Вкажіть місто*" name="sity" type="text">
+                        <input class="i-2 checkRequired" required placeholder="Вулиця*" name="street" type="text">
+                        <input class="i-3 checkRequired" required placeholder="№ будинку*" name="house" type="text">
+                        <input class="i-4" placeholder="Квартира" name="apartment" type="text">
+                        <input class="i-5" placeholder="Поверх" name="floor" type="text">
+                        <input class="i-6" placeholder="Комментар" name="comment" type="text">
+                    </div>
+                </div>
+                <div class="step">
+                    <h2 class="popup__subtitle">3. Оплата</h2>
+                    <div class="radio-3">
+                        <div class="radio__btn pay active">Готівка</div>
+                        <div class="radio__btn pay">Кур'єру картою</div>
+                        <div class="radio__btn pay">Оплата онлайн</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <h2 class="popup__subtitle">4. Хочете, щоб ми зателефонували?</h2>
+                    <label>
+                        <input checked name="call" type="radio" value="not-call" class="radio-call">
+                        <span>Не передзвонювати</span>
+                    </label>
+                    <br>
+                    <label>
+                        <input name="call" type="radio" value="call" class="radio-call">
+                        <span>Потрібен дзвінок оператора</span>
+                    </label>
+                </div>
+                <div class="step lastStep">
+                    <button type="submit" id="secondSubmit" class="issue__btn btn blocked">Купити!</button>
+                    <label>
+                        <input required name="agree" type="checkbox" class="agree">
+                        <span>Я погоджуюсь обробити свої персональні дані відповідно до<a class="policy" href="#">Умов</a></span>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- <button data-popup class="btn">Click me</button> -->
 
     
     
