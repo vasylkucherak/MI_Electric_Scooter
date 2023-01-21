@@ -22,7 +22,7 @@ $transitionVerticalPosition: -100%;
     left: 0;
     width: 100%;
     z-index: 10;
-    transition: all 0.2s;
+    transition: backdrop-filter 0.2s;
     &._active {
         backdrop-filter: blur(10px);
     }

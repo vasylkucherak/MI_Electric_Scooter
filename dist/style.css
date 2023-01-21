@@ -186,7 +186,7 @@ main {
   left: 0;
   width: 100%;
   z-index: 10;
-  transition: all 0.2s;
+  transition: backdrop-filter 0.2s;
 }
 .header._active {
   backdrop-filter: blur(10px);
@@ -2172,6 +2172,12 @@ html.dark .swiper-pagination-bullet {
   margin-bottom: 0;
 }
 
+@media (max-width: 479.98px) {
+  .question__btn {
+    margin: 0 auto;
+    display: block;
+  }
+}
 .question__title {
   font-weight: 600;
   font-size: 20px;
@@ -2405,6 +2411,11 @@ html.dark body .spoiler-content {
 .footer {
   margin: 60px 0;
 }
+@media (max-width: 767.98px) {
+  .footer {
+    margin: 30px 0;
+  }
+}
 .footer__container {
   display: flex;
   justify-content: space-between;
@@ -2460,7 +2471,7 @@ html.dark .footer a:hover {
   left: 0;
   display: none;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   width: 100%;
   height: 100%;
   overflow-y: auto;
@@ -2472,8 +2483,8 @@ html.dark .footer a:hover {
   margin: 50px 20px;
   padding: 60px;
   max-width: 880px;
-  border-radius: 15px;
-  max-height: 100%;
+  border-radius: 20px;
+  height: auto;
 }
 .popup__close {
   position: absolute;
@@ -2637,7 +2648,6 @@ body._cursor .popup__close:hover {
   height: 100%;
   font-weight: 700;
   font-size: 16px;
-  line-height: 33px;
   text-align: center;
   cursor: pointer;
 }
@@ -2699,22 +2709,6 @@ html.light .popup__dialog {
 html.light .popup__title {
   color: #fd4900;
 }
-html.light .step {
-  /* &.lastStep {
-      label {
-          .agree {
-              &:before {
-                  background:#151515;
-              }
-          }
-      }
-  }
-  .radio-call {
-      &:before {
-          background:#151515;
-      }
-  } */
-}
 html.light .step div input {
   background-color: #151515;
   color: #f1f1f1;
@@ -2735,22 +2729,6 @@ html.dark .popup__dialog {
 html.dark .popup__title {
   color: #fd4900;
 }
-html.dark .step {
-  /* &.lastStep {
-      label {
-          .agree {
-              &:before {
-                  background:#f1f1f1;
-              }
-          }
-      }
-  }
-  .radio-call {
-      &:before {
-          background:#f1f1f1;
-      }
-  } */
-}
 html.dark .step div input {
   background-color: #f1f1f1;
   color: #151515;
@@ -2761,4 +2739,74 @@ html.dark .step .radio__btn, html.dark .step .radio-3__btn {
 }
 html.dark .step label span, html.dark .step label a {
   color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+  .popup {
+    padding: 0;
+  }
+  .popup__dialog {
+    margin: 0;
+    padding: 15px 20px;
+    max-height: none;
+    border-radius: 0;
+  }
+}
+@media (max-width: 575px) {
+  .popup__dialog .step {
+    padding: 25px 20px;
+  }
+  .popup__dialog .step.lastStep {
+    padding: 17px 20px;
+    flex-direction: column;
+  }
+  .popup__dialog .step.lastStep label {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .popup__dialog .step .subtitle {
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .popup__dialog .step div.step-1 {
+    grid-template: repeat(2, 60px)/1fr;
+    grid-auto-rows: 60px;
+  }
+  .popup__dialog .step div.step-2 {
+    grid-template: repeat(4, 60px)/repeat(2, 1fr);
+  }
+  .popup__dialog .step div.step-2 .i-1 {
+    grid-row: 1/2;
+    grid-column: 1/3;
+  }
+  .popup__dialog .step div.step-2 .i-2 {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+  .popup__dialog .step div.step-2 .i-3 {
+    grid-row: 2/3;
+    grid-column: 2/3;
+  }
+  .popup__dialog .step div.step-2 .i-4 {
+    grid-row: 3/4;
+    grid-column: 1/2;
+  }
+  .popup__dialog .step div.step-2 .i-5 {
+    grid-row: 3/4;
+    grid-column: 2/3;
+  }
+  .popup__dialog .step div.step-2 .i-6 {
+    grid-row: 4/5;
+    grid-column: 1/3;
+  }
+  .popup__dialog .step div input {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+@media (max-width: 480px) {
+  .popup__dialog {
+    padding: 15px 10px;
+  }
 }

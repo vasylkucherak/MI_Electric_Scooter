@@ -32,6 +32,10 @@
 }
 .question {
     &__btn {
+        @media (max-width: $mobileSmall) {
+            margin: 0 auto;
+            display: block;
+        }
     }
     &__box {
     }

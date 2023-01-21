@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }); */
 
     popup({
-        triggersSelector: '[data-popup]',
+        triggersSelector: '[data-buy]',
         popupSelector: '.popup',
         closeSelector: '[data-close]',
         destroyTrigger: false,
